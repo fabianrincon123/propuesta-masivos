@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bg360 — Tickets Masivos</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;background:#0f1923;color:#e0e0e0;height:100vh;overflow:hidden;}
+  .erp-shell{display:flex;height:100vh;}
+
+  /* SIDEBAR */
+  .sidebar{width:180px;min-width:180px;background:#111c26;border-right:1px solid #1e2d3d;display:flex;flex-direction:column;}
+  .sidebar-logo{padding:14px 16px;border-bottom:1px solid #1e2d3d;}
+  .sidebar-logo .brand{font-size:15px;font-weight:600;color:#fff;}
+  .sidebar-logo .sub{font-size:11px;color:#6b7f8e;}
+  .sidebar-section{padding:14px 12px 4px;font-size:10px;color:#4a6070;letter-spacing:.08em;text-transform:uppercase;}
+  .sidebar-item{display:flex;align-items:center;gap:8px;padding:7px 14px;cursor:pointer;color:#8a9db0;font-size:12.5px;border-left:2px solid transparent;}
+  .sidebar-item:hover{background:#162030;color:#c0d0dc;}
+  .sidebar-item.active{background:#162030;color:#00d4a8;border-left:2px solid #00d4a8;}
+  .sidebar-item .badge{margin-left:auto;background:#00d4a8;color:#0a1a12;font-size:10px;font-weight:700;border-radius:10px;padding:1px 6px;}
+  .sidebar-footer{margin-top:auto;padding:12px 14px;border-top:1px solid #1e2d3d;display:flex;align-items:center;gap:8px;}
+  .avatar{width:28px;height:28px;border-radius:50%;background:#00d4a8;color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
+  .footer-name{font-size:12px;color:#c0d0dc;font-weight:500;}
+  .footer-status{font-size:10px;color:#00d4a8;}
+
+  /* MAIN */
+  .main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+  .topbar{background:#111c26;border-bottom:1px solid #1e2d3d;padding:0 20px;display:flex;align-items:center;height:42px;}
+  .tab{padding:0 14px;height:100%;display:flex;align-items:center;font-size:12px;color:#6b7f8e;border-bottom:2px solid transparent;gap:6px;white-space:nowrap;cursor:pointer;}
+  .tab:hover{color:#c0d0dc;}
+  .tab.active{color:#00d4a8;border-bottom:2px solid #00d4a8;}
+  .tab .x{color:#4a6070;font-size:10px;margin-left:2px;}
+  .content{flex:1;overflow-y:auto;padding:20px;}
+
+  /* PAGE HEADER */
+  .ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
+  .ph-title{font-size:16px;font-weight:500;color:#e0e6ec;display:flex;align-items:center;gap:8px;}
+  .ph-title i{color:#00d4a8;font-size:18px;}
+  .ph-sub{font-size:11.5px;color:#6b7f8e;margin-top:3px;}
+  .btn-primary{background:#00d4a8;color:#0a1a12;border:none;border-radius:6px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;}
+  .btn-primary:hover{background:#00b894;}
+
+  /* FILTERS */
+  .filters{background:#162030;border:1px solid #1e2d3d;border-radius:8px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .f-label{font-size:11px;color:#6b7f8e;white-space:nowrap;}
+  .f-sel{background:#111c26;border:1px solid #1e2d3d;border-radius:5px;padding:5px 9px;color:#c0d0dc;font-size:12px;cursor:pointer;}
+  .f-sel:focus{outline:none;border-color:#00d4a8;}
+  .f-input{background:#111c26;border:1px solid #1e2d3d;border-radius:5px;padding:5px 9px;color:#c0d0dc;font-size:12px;width:150px;}
+  .f-input:focus{outline:none;border-color:#00d4a8;}
+  .btn-buscar{background:#00d4a8;color:#0a1a12;border:none;border-radius:6px;padding:5px 12px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px;margin-left:auto;}
+
+  /* MASIVO CARD */
+  .masivo-card{background:#162030;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;margin-bottom:10px;}
+  .masivo-header{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;}
+  .masivo-header:hover{background:#1a2836;}
+  .masivo-header.open{border-bottom:1px solid #1e2d3d;}
+  .m-badge{background:rgba(127,119,221,.15);color:#a09be8;border:1px solid rgba(127,119,221,.25);border-radius:12px;font-size:10px;font-weight:600;padding:2px 8px;flex-shrink:0;}
+  .m-title{flex:1;font-size:13px;font-weight:500;color:#e0e6ec;}
+  .m-meta{font-size:11px;color:#6b7f8e;white-space:nowrap;}
+  .m-estado{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:500;flex-shrink:0;}
+  .e-prog{background:rgba(255,193,7,.12);color:#FFC107;}
+  .e-comp{background:rgba(40,167,69,.12);color:#28A745;}
+  .e-open{background:rgba(13,110,253,.12);color:#5b9bf8;}
+  .m-prog-wrap{width:80px;background:#1e2d3d;border-radius:3px;height:5px;flex-shrink:0;}
+  .m-prog-fill{height:5px;border-radius:3px;background:#00d4a8;}
+  .m-pct{font-size:11px;color:#00d4a8;font-weight:600;min-width:28px;text-align:right;flex-shrink:0;}
+  .chev{color:#4a6070;font-size:14px;transition:transform .2s;}
+  .chev.open{transform:rotate(180deg);}
+
+  /* MASIVO DETAIL */
+  .masivo-detail{display:none;background:#111c26;padding:14px;}
+  .masivo-detail.open{display:block;}
+  .det-sec{font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;margin-top:12px;}
+  .det-sec:first-child{margin-top:0;}
+  .det-desc{font-size:12px;color:#8a9db0;line-height:1.6;margin-bottom:4px;}
+
+  /* ZONA */
+  .zona-block{background:#162030;border:1px solid #1e2d3d;border-radius:6px;overflow:hidden;margin-bottom:8px;}
+  .zona-block:last-child{margin-bottom:0;}
+  .zona-header{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid #1e2d3d;}
+  .zona-name{font-size:12px;font-weight:500;color:#c0d0dc;}
+  .zona-prog-wrap{flex:1;background:#1e2d3d;border-radius:2px;height:4px;}
+  .zona-prog-fill{height:4px;border-radius:2px;background:#00d4a8;}
+  .zona-pct{font-size:11px;color:#6b7f8e;min-width:28px;text-align:right;flex-shrink:0;}
+
+  /* TÉCNICO */
+  .tec-row{display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid #1a2836;}
+  .tec-row:last-child{border-bottom:none;}
+  .tec-av{width:24px;height:24px;border-radius:50%;background:#00d4a8;color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;}
+  .tec-name{flex:1;font-size:12px;color:#c0d0dc;}
+  .tec-tickets{font-size:11px;color:#6b7f8e;min-width:80px;text-align:right;}
+  .tec-estado{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:500;padding:2px 7px;border-radius:10px;flex-shrink:0;}
+  .sdot{width:5px;height:5px;border-radius:50%;display:inline-block;}
+
+  /* PAGINACIÓN */
+  .pag{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-size:12px;color:#6b7f8e;}
+  .pag-btns{display:flex;gap:6px;}
+  .pag-btn{background:#162030;border:1px solid #1e2d3d;border-radius:5px;padding:4px 10px;color:#8a9db0;cursor:pointer;font-size:12px;}
+  .pag-btn:hover{background:#1e2d3d;}
+  .pag-btn.active{background:#00d4a8;color:#0a1a12;font-weight:700;border-color:#00d4a8;}
+</style>
+</head>
+<body>
+
+<div class="erp-shell">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <div class="brand">Bg360</div>
+      <div class="sub">ERP Integral</div>
+    </div>
+    <div class="sidebar-section">Menú principal</div>
+    <div class="sidebar-item"><i class="ti ti-home"></i> Inicio</div>
+    <div class="sidebar-section">Mesa de Servicio</div>
+    <div class="sidebar-item"><i class="ti ti-phone"></i> Llamadas <span class="badge">1</span></div>
+    <div class="sidebar-item"><i class="ti ti-alert-circle"></i> Incidentes</div>
+    <div class="sidebar-item"><i class="ti ti-layout-list"></i> Todos</div>
+    <div class="sidebar-item"><i class="ti ti-shield-check"></i> Admin</div>
+    <div class="sidebar-item active"><i class="ti ti-stack-2"></i> Masivos</div>
+    <div class="sidebar-item"><i class="ti ti-chart-bar"></i> Gerencia</div>
+    <div class="sidebar-section">Sistema</div>
+    <div class="sidebar-item"><i class="ti ti-settings"></i> Configuración</div>
+    <div class="sidebar-footer">
+      <div class="avatar">JF</div>
+      <div>
+        <div class="footer-name">JEFERSON FABIAN</div>
+        <div class="footer-status">En línea</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="tab">Llamadas — Mesa de Servicio <span class="x">×</span></div>
+      <div class="tab active">Masivos <span class="x">×</span></div>
+    </div>
+
+    <div class="content">
+
+      <div class="ph">
+        <div>
+          <div class="ph-title"><i class="ti ti-stack-2"></i> Tickets masivos</div>
+          <div class="ph-sub">Gestión de actividades masivas asignadas por zona y técnico · Solo visible para administradores</div>
+        </div>
+        <button class="btn-primary"><i class="ti ti-plus"></i> Nuevo masivo</button>
+      </div>
+
+      <div class="filters">
+        <span class="f-label">Estado</span>
+        <select class="f-sel">
+          <option>Todos</option><option>Abierto</option><option>En Progreso</option><option>Completado</option>
+        </select>
+        <span class="f-label">Zona</span>
+        <select class="f-sel">
+          <option>Todas las zonas</option><option>Zona Norte</option><option>Zona Sur</option><option>Zona Centro</option>
+        </select>
+        <span class="f-label">Técnico</span>
+        <select class="f-sel" style="min-width:140px;">
+          <option>Todos</option><option>Gelvez Esneyder</option><option>Ivan Sanchez</option><option>María Rodríguez</option><option>Carlos Pérez</option>
+        </select>
+        <span class="f-label">Fechas</span>
+        <select class="f-sel">
+          <option>Este mes</option><option>Esta semana</option><option>Rango libre</option>
+        </select>
+        <input class="f-input" type="text" placeholder="Buscar masivo...">
+        <button class="btn-buscar"><i class="ti ti-search"></i> Buscar</button>
+      </div>
+
+      <!-- MASIVO 1 -->
+      <div class="masivo-card">
+        <div class="masivo-header open" id="h0" onclick="toggle(0)">
+          <span class="m-badge">MASIVO</span>
+          <div class="m-title">Actualización de software en equipos de tiendas</div>
+          <div class="m-meta">Creado 28 jul · Vence 05 ago</div>
+          <span class="m-estado e-prog"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
+          <div class="m-prog-wrap"><div class="m-prog-fill" style="width:62%;"></div></div>
+          <div class="m-pct">62%</div>
+          <i class="ti ti-chevron-down chev open" id="c0"></i>
+        </div>
+        <div class="masivo-detail open" id="d0">
+          <div class="det-sec">Descripción</div>
+          <p class="det-desc">Actualizar el módulo de facturación en todos los equipos de caja de las tiendas asignadas por zona antes del 5 de agosto.</p>
+          <div class="det-sec">Progreso por zona y técnico</div>
+
+          <div class="zona-block">
+            <div class="zona-header">
+              <div class="zona-name">Zona Norte</div>
+              <div class="zona-prog-wrap"><div class="zona-prog-fill" style="width:80%;"></div></div>
+              <div class="zona-pct">80%</div>
+            </div>
+            <div class="tec-row">
+              <div class="tec-av">GE</div>
+              <div class="tec-name">Gelvez Esneyder</div>
+              <div class="tec-tickets">8 / 10 tickets</div>
+              <span class="tec-estado e-prog"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
+            </div>
+            <div class="tec-row">
+              <div class="tec-av" style="background:#00a884;">MR</div>
+              <div class="tec-name">María Rodríguez</div>
+              <div class="tec-tickets">4 / 5 tickets</div>
+              <span class="tec-estado e-comp"><span class="sdot" style="background:#28A745;"></span> Completado</span>
+            </div>
+          </div>
+
+          <div class="zona-block">
+            <div class="zona-header">
+              <div class="zona-name">Zona Sur</div>
+              <div class="zona-prog-wrap"><div class="zona-prog-fill" style="width:50%;"></div></div>
+              <div class="zona-pct">50%</div>
+            </div>
+            <div class="tec-row">
+              <div class="tec-av" style="background:#007a60;">IS</div>
+              <div class="tec-name">Ivan Sanchez</div>
+              <div class="tec-tickets">5 / 10 tickets</div>
+              <span class="tec-estado e-prog"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
+            </div>
+            <div class="tec-row">
+              <div class="tec-av" style="background:#005244;">CP</div>
+              <div class="tec-name">Carlos Pérez</div>
+              <div class="tec-tickets">0 / 8 tickets</div>
+              <span class="tec-estado e-open"><span class="sdot" style="background:#5b9bf8;"></span> Abierto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MASIVO 2 -->
+      <div class="masivo-card">
+        <div class="masivo-header" id="h1" onclick="toggle(1)">
+          <span class="m-badge">MASIVO</span>
+          <div class="m-title">Cambio de contraseñas administrativas — todas las sedes</div>
+          <div class="m-meta">Creado 15 jul · Vence 31 jul</div>
+          <span class="m-estado e-comp"><span class="sdot" style="background:#28A745;"></span> Completado</span>
+          <div class="m-prog-wrap"><div class="m-prog-fill" style="width:100%;"></div></div>
+          <div class="m-pct">100%</div>
+          <i class="ti ti-chevron-down chev" id="c1"></i>
+        </div>
+        <div class="masivo-detail" id="d1">
+          <div class="det-sec">Descripción</div>
+          <p class="det-desc">Cambio obligatorio de contraseñas administrativas en todos los sistemas de las sedes por política de seguridad.</p>
+          <div class="det-sec">Progreso por zona y técnico</div>
+          <div class="zona-block">
+            <div class="zona-header">
+              <div class="zona-name">Zona Centro</div>
+              <div class="zona-prog-wrap"><div class="zona-prog-fill" style="width:100%;"></div></div>
+              <div class="zona-pct">100%</div>
+            </div>
+            <div class="tec-row">
+              <div class="tec-av">GE</div>
+              <div class="tec-name">Gelvez Esneyder</div>
+              <div class="tec-tickets">12 / 12 tickets</div>
+              <span class="tec-estado e-comp"><span class="sdot" style="background:#28A745;"></span> Completado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MASIVO 3 -->
+      <div class="masivo-card">
+        <div class="masivo-header" id="h2" onclick="toggle(2)">
+          <span class="m-badge">MASIVO</span>
+          <div class="m-title">Instalación de nuevo sistema de inventario</div>
+          <div class="m-meta">Creado 01 ago · Vence 15 ago</div>
+          <span class="m-estado e-open"><span class="sdot" style="background:#5b9bf8;"></span> Abierto</span>
+          <div class="m-prog-wrap"><div class="m-prog-fill" style="width:0%;"></div></div>
+          <div class="m-pct">0%</div>
+          <i class="ti ti-chevron-down chev" id="c2"></i>
+        </div>
+        <div class="masivo-detail" id="d2">
+          <div class="det-sec">Descripción</div>
+          <p class="det-desc">Instalación del nuevo módulo de inventario en todos los puntos de venta. Requiere reinicio del equipo posterior a la instalación.</p>
+          <div class="det-sec">Progreso por zona y técnico</div>
+          <div class="zona-block">
+            <div class="zona-header">
+              <div class="zona-name">Zona Norte</div>
+              <div class="zona-prog-wrap"><div class="zona-prog-fill" style="width:0%;"></div></div>
+              <div class="zona-pct">0%</div>
+            </div>
+            <div class="tec-row">
+              <div class="tec-av" style="background:#007a60;">IS</div>
+              <div class="tec-name">Ivan Sanchez</div>
+              <div class="tec-tickets">0 / 15 tickets</div>
+              <span class="tec-estado e-open"><span class="sdot" style="background:#5b9bf8;"></span> Abierto</span>
+            </div>
+            <div class="tec-row">
+              <div class="tec-av" style="background:#00a884;">MR</div>
+              <div class="tec-name">María Rodríguez</div>
+              <div class="tec-tickets">0 / 12 tickets</div>
+              <span class="tec-estado e-open"><span class="sdot" style="background:#5b9bf8;"></span> Abierto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pag">
+        <span>3 de 3 masivos</span>
+        <div class="pag-btns">
+          <button class="pag-btn">← Anterior</button>
+          <button class="pag-btn active">Pág. 1</button>
+          <button class="pag-btn">Siguiente →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function toggle(i) {
+  const d = document.getElementById('d'+i);
+  const c = document.getElementById('c'+i);
+  const h = document.getElementById('h'+i);
+  const isOpen = d.classList.contains('open');
+  document.querySelectorAll('.masivo-detail').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.chev').forEach(x => x.classList.remove('open'));
+  document.querySelectorAll('.masivo-header').forEach(x => x.classList.remove('open'));
+  if (!isOpen) { d.classList.add('open'); c.classList.add('open'); h.classList.add('open'); }
+}
+</script>
+</body>
+</html>

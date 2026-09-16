@@ -10,7 +10,6 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;background:#0f1923;color:#e0e0e0;height:100vh;overflow:hidden;}
 .erp-shell{display:flex;height:100vh;}
 
-/* SIDEBAR */
 .sidebar{width:180px;min-width:180px;background:#111c26;border-right:1px solid #1e2d3d;display:flex;flex-direction:column;}
 .sb-logo{padding:14px 16px;border-bottom:1px solid #1e2d3d;}
 .sb-logo .brand{font-size:15px;font-weight:600;color:#fff;}
@@ -23,7 +22,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .sb-foot{margin-top:auto;padding:12px 14px;border-top:1px solid #1e2d3d;display:flex;align-items:center;gap:8px;}
 .av{width:28px;height:28px;border-radius:50%;background:#00d4a8;color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
 
-/* MAIN */
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
 .topbar{background:#111c26;border-bottom:1px solid #1e2d3d;padding:0 20px;display:flex;align-items:center;height:42px;}
 .tab{padding:0 14px;height:100%;display:flex;align-items:center;font-size:12px;color:#6b7f8e;cursor:pointer;border-bottom:2px solid transparent;gap:6px;white-space:nowrap;}
@@ -34,66 +32,50 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .view{display:none;}
 .view.active{display:block;}
 
-/* HEADERS */
 .ph{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
 .ph-title{font-size:16px;font-weight:500;color:#e0e6ec;display:flex;align-items:center;gap:8px;}
 .ph-title i{color:#00d4a8;font-size:18px;}
 .ph-sub{font-size:11.5px;color:#6b7f8e;margin-top:3px;}
 
-/* BOTONES */
 .btn-p{background:#00d4a8;color:#0a1a12;border:none;border-radius:6px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;}
 .btn-p:hover{background:#00b894;}
 .btn-s{background:transparent;border:1px solid #1e2d3d;border-radius:6px;padding:5px 12px;font-size:12px;color:#8a9db0;cursor:pointer;display:flex;align-items:center;gap:5px;}
 .btn-s:hover{background:#162030;color:#c0d0dc;}
 .btn-row{display:flex;gap:8px;}
+.btn-warn{background:rgba(253,126,20,.15);color:#FD7E14;border:1px solid rgba(253,126,20,.3);border-radius:6px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;}
 
-/* FILTROS */
 .filters{background:#162030;border:1px solid #1e2d3d;border-radius:8px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .f-label{font-size:11px;color:#6b7f8e;white-space:nowrap;}
 .f-sel{background:#111c26;border:1px solid #1e2d3d;border-radius:5px;padding:5px 9px;color:#c0d0dc;font-size:12px;cursor:pointer;}
 .f-input{background:#111c26;border:1px solid #1e2d3d;border-radius:5px;padding:5px 9px;color:#c0d0dc;font-size:12px;width:140px;}
-.f-div{width:1px;height:22px;background:#1e2d3d;flex-shrink:0;}
 
-/* TABLA INCIDENTES */
+/* TABLA */
 .tbl-wrap{background:#162030;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;}
 .tbl{width:100%;border-collapse:collapse;font-size:12px;}
 .tbl th{padding:9px 12px;text-align:left;color:#6b7f8e;font-weight:500;border-bottom:1px solid #1e2d3d;white-space:nowrap;background:#111c26;}
 .tbl td{padding:8px 12px;border-bottom:1px solid #1a2836;color:#c0d0dc;vertical-align:middle;}
 .tbl tr:last-child td{border-bottom:none;}
 .tbl tr:hover td{background:#1a2836;}
-.tbl tr.masivo-row{cursor:pointer;}
 .tbl tr.masivo-row td{background:rgba(127,119,221,.04);}
-.tbl tr.masivo-row:hover td{background:rgba(127,119,221,.1);}
-
-/* MASIVO INLINE (técnico) */
-.masivo-inline{background:#111c26;border-top:1px solid rgba(127,119,221,.2);padding:12px 14px;display:none;}
-.masivo-inline.open{display:block;}
-.mi-title{font-size:11px;color:#a09be8;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-.mi-desc{font-size:11.5px;color:#8a9db0;margin-bottom:10px;line-height:1.5;}
-.mi-sec{font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
-.bodega-row{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #1a2836;}
-.bodega-row:last-child{border-bottom:none;}
-.bodega-name{flex:1;font-size:11.5px;color:#c0d0dc;}
-.bodega-estado{font-size:10.5px;font-weight:500;padding:2px 7px;border-radius:10px;display:inline-flex;align-items:center;gap:3px;}
-.sdot{width:5px;height:5px;border-radius:50%;display:inline-block;}
-.prog-wrap{width:60px;background:#1e2d3d;border-radius:2px;height:3px;flex-shrink:0;}
-.prog-fill{height:3px;border-radius:2px;background:#00d4a8;}
-.prog-pct{font-size:10.5px;color:#00d4a8;font-weight:600;min-width:28px;text-align:right;}
+.tbl tr.masivo-row:hover td{background:rgba(127,119,221,.1);cursor:pointer;}
 
 /* BADGES */
-.bdg-tipo{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:500;}
+.bdg{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:500;}
 .b-inc{background:rgba(160,155,232,.12);color:#a09be8;border:1px solid rgba(160,155,232,.2);}
 .b-mas{background:rgba(127,119,221,.15);color:#a09be8;border:1px solid rgba(127,119,221,.3);}
 .b-ab{background:rgba(13,110,253,.15);color:#5b9bf8;}
 .b-pr{background:rgba(255,193,7,.12);color:#FFC107;}
 .b-so{background:rgba(40,167,69,.12);color:#28A745;}
+.b-ac{background:rgba(40,167,69,.15);color:#28A745;border:1px solid rgba(40,167,69,.3);}
+.b-re{background:rgba(224,82,82,.15);color:#e05252;border:1px solid rgba(224,82,82,.3);}
 .b-prio-a{background:rgba(224,82,82,.15);color:#e05252;}
 .b-prio-m{background:rgba(255,193,7,.12);color:#e6ac00;}
 .b-prio-b{background:rgba(40,167,69,.12);color:#28A745;}
+.sdot{width:5px;height:5px;border-radius:50%;display:inline-block;}
 .action-btn{background:transparent;border:none;color:#6b7f8e;cursor:pointer;padding:3px 6px;border-radius:4px;font-size:15px;}
 .action-btn:hover{background:#1e2d3d;color:#00d4a8;}
 
-/* MASIVOS ADMIN */
+/* MASIVO CARDS ADMIN */
 .masivo-card{background:#162030;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;margin-bottom:10px;}
 .masivo-hdr{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;}
 .masivo-hdr:hover{background:#1a2836;}
@@ -112,8 +94,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .chev.open{transform:rotate(180deg);}
 .masivo-det{display:none;background:#111c26;padding:14px;}
 .masivo-det.open{display:block;}
-.det-sec{font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;margin-top:12px;}
+.det-sec{font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;margin-top:14px;}
 .det-sec:first-child{margin-top:0;}
+
+/* ZONA Y TÉCNICO */
 .zona-block{background:#162030;border:1px solid #1e2d3d;border-radius:6px;overflow:hidden;margin-bottom:8px;}
 .zona-block:last-child{margin-bottom:0;}
 .zona-hdr{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid #1e2d3d;}
@@ -121,23 +105,59 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .zona-pw{flex:1;background:#1e2d3d;border-radius:2px;height:4px;}
 .zona-pf{height:4px;border-radius:2px;background:#00d4a8;}
 .zona-pct{font-size:11px;color:#6b7f8e;min-width:28px;text-align:right;}
-.tec-row{display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid #1a2836;}
+.tec-row{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid #1a2836;cursor:pointer;}
+.tec-row:hover{background:#1a2836;}
 .tec-row:last-child{border-bottom:none;}
-.tec-av{width:24px;height:24px;border-radius:50%;background:#00d4a8;color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;}
-.tec-name{flex:1;font-size:12px;color:#c0d0dc;}
-.tec-bodegas{font-size:11px;color:#6b7f8e;}
+.tec-av{width:26px;height:26px;border-radius:50%;background:#00d4a8;color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;}
+.tec-name{flex:1;font-size:12px;color:#c0d0dc;font-weight:500;}
 .tec-tickets{font-size:11px;color:#6b7f8e;min-width:80px;text-align:right;}
 .tec-est{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:500;padding:2px 7px;border-radius:10px;flex-shrink:0;}
+.tec-detail{display:none;background:#0f1923;border-top:1px solid #1e2d3d;padding:10px 12px;}
+.tec-detail.open{display:block;}
+.tec-note{display:flex;gap:6px;padding:5px 0;border-bottom:1px solid #1a2836;font-size:11.5px;}
+.tec-note:last-child{border-bottom:none;}
+.note-time{color:#4a6070;white-space:nowrap;flex-shrink:0;}
+.note-body{color:#8a9db0;flex:1;}
+.note-body strong{color:#c0d0dc;}
+.bodega-tag{display:inline-flex;align-items:center;gap:3px;background:#162030;border:1px solid #1e2d3d;border-radius:4px;padding:1px 6px;font-size:10.5px;color:#8a9db0;margin:1px;}
+.bodega-tag.done{border-color:rgba(40,167,69,.3);color:#28A745;background:rgba(40,167,69,.06);}
 
-/* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;display:none;}
-.modal-overlay.open{display:flex;}
-.modal{background:#162030;border:1px solid #1e2d3d;border-radius:12px;width:560px;max-height:80vh;overflow-y:auto;}
-.modal-header{padding:16px 20px;border-bottom:1px solid #1e2d3d;display:flex;align-items:center;justify-content:space-between;}
+/* INLINE MASIVO TÉCNICO */
+.masivo-inline{background:#111c26;border-top:1px solid rgba(127,119,221,.2);padding:14px;display:none;}
+.masivo-inline.open{display:block;}
+.mi-title{font-size:11px;color:#a09be8;font-weight:500;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.mi-desc{font-size:11.5px;color:#8a9db0;margin-bottom:12px;line-height:1.5;}
+.mi-sec{font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.prog-bar-wrap{flex:1;background:#1e2d3d;border-radius:2px;height:4px;}
+.prog-bar-fill{height:4px;border-radius:2px;background:#00d4a8;}
+.prog-pct{font-size:11px;color:#00d4a8;font-weight:600;min-width:32px;text-align:right;}
+
+/* BODEGAS EN TÉCNICO */
+.bodega-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #1a2836;}
+.bodega-row:last-child{border-bottom:none;}
+.bodega-name{flex:1;font-size:12px;color:#c0d0dc;}
+.bodega-check{width:22px;height:22px;border-radius:6px;border:1.5px solid #1e2d3d;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:13px;transition:all .15s;}
+.bodega-check.done{background:#28A745;border-color:#28A745;color:#fff;}
+.bodega-check.open-st{background:transparent;border-color:#1e2d3d;color:#4a6070;}
+.bodega-note-input{background:#162030;border:1px solid #1e2d3d;border-radius:5px;padding:4px 8px;color:#c0d0dc;font-size:11.5px;flex:1;min-width:0;}
+
+/* PAGINACIÓN */
+.pag{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-size:12px;color:#6b7f8e;}
+.pag-btns{display:flex;gap:6px;}
+.pag-btn{background:#162030;border:1px solid #1e2d3d;border-radius:5px;padding:4px 10px;color:#8a9db0;cursor:pointer;font-size:12px;}
+.pag-btn.active{background:#00d4a8;color:#0a1a12;font-weight:700;border-color:#00d4a8;}
+
+/* MODALES */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:100;}
+.overlay.open{display:flex;}
+.modal{background:#162030;border:1px solid #1e2d3d;border-radius:12px;width:600px;max-height:85vh;overflow-y:auto;display:flex;flex-direction:column;}
+.modal.sm{width:420px;}
+.modal-hdr{padding:16px 20px;border-bottom:1px solid #1e2d3d;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
 .modal-title{font-size:15px;font-weight:500;color:#e0e6ec;}
-.modal-close{background:none;border:none;color:#6b7f8e;cursor:pointer;font-size:18px;padding:2px;}
+.modal-close{background:none;border:none;color:#6b7f8e;cursor:pointer;font-size:18px;}
 .modal-close:hover{color:#c0d0dc;}
-.modal-body{padding:20px;}
+.modal-body{padding:20px;overflow-y:auto;}
+.modal-foot{padding:14px 20px;border-top:1px solid #1e2d3d;display:flex;justify-content:flex-end;gap:8px;flex-shrink:0;}
 .form-group{margin-bottom:14px;}
 .form-label{font-size:11.5px;color:#8a9db0;margin-bottom:5px;display:block;}
 .form-label span{color:#e05252;}
@@ -145,39 +165,55 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .form-input:focus{outline:none;border-color:#00d4a8;}
 .form-textarea{width:100%;background:#111c26;border:1px solid #1e2d3d;border-radius:6px;padding:7px 10px;color:#c0d0dc;font-size:12.5px;resize:vertical;min-height:70px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.agente-selector{background:#111c26;border:1px solid #1e2d3d;border-radius:6px;overflow:hidden;}
-.agente-item{display:flex;align-items:center;gap:8px;padding:7px 10px;cursor:pointer;border-bottom:1px solid #1a2836;}
-.agente-item:last-child{border-bottom:none;}
-.agente-item:hover{background:#162030;}
-.agente-item.selected{background:rgba(0,212,168,.08);}
-.agente-check{width:16px;height:16px;border-radius:4px;border:1px solid #1e2d3d;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.agente-check.checked{background:#00d4a8;border-color:#00d4a8;color:#0a1a12;font-size:10px;}
-.agente-info{flex:1;}
-.agente-name{font-size:12px;color:#c0d0dc;font-weight:500;}
-.agente-bodegas{font-size:10.5px;color:#6b7f8e;margin-top:1px;}
-.agente-zona{font-size:10.5px;color:#00d4a8;}
-.modal-footer{padding:14px 20px;border-top:1px solid #1e2d3d;display:flex;justify-content:flex-end;gap:8px;}
 
-/* PAGINACIÓN */
-.pag{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-size:12px;color:#6b7f8e;}
-.pag-btns{display:flex;gap:6px;}
-.pag-btn{background:#162030;border:1px solid #1e2d3d;border-radius:5px;padding:4px 10px;color:#8a9db0;cursor:pointer;font-size:12px;}
-.pag-btn.active{background:#00d4a8;color:#0a1a12;font-weight:700;border-color:#00d4a8;}
+/* SELECTOR DE AGENTES */
+.agente-block{background:#111c26;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;margin-bottom:10px;}
+.agente-block:last-child{margin-bottom:0;}
+.agente-hdr{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;border-bottom:1px solid transparent;}
+.agente-hdr.selected{background:rgba(0,212,168,.06);border-bottom-color:#1e2d3d;}
+.agente-check{width:18px;height:18px;border-radius:5px;border:1.5px solid #1e2d3d;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;transition:all .15s;}
+.agente-check.checked{background:#00d4a8;border-color:#00d4a8;color:#0a1a12;}
+.agente-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;color:#0a1a12;}
+.agente-info{flex:1;}
+.agente-name{font-size:12.5px;color:#c0d0dc;font-weight:500;}
+.agente-zona{font-size:10.5px;color:#00d4a8;margin-top:1px;}
+.agente-body{display:none;padding:10px 12px 12px;}
+.agente-body.open{display:block;}
+.bodega-selector-title{font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.bodega-selector-title button{font-size:10.5px;color:#00d4a8;background:none;border:none;cursor:pointer;padding:0;}
+.bodega-item{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:5px;cursor:pointer;margin-bottom:2px;}
+.bodega-item:hover{background:#162030;}
+.bodega-item.selected-b{background:rgba(0,212,168,.06);}
+.bodega-item.other-tec{opacity:.6;}
+.bodega-item.already-assigned{opacity:.4;cursor:not-allowed;}
+.bchk{width:15px;height:15px;border-radius:3px;border:1.5px solid #1e2d3d;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;}
+.bchk.on{background:#00d4a8;border-color:#00d4a8;color:#0a1a12;}
+.bchk.blocked{background:#1e2d3d;border-color:#1e2d3d;color:#4a6070;}
+.b-item-name{flex:1;font-size:12px;color:#c0d0dc;}
+.b-item-owner{font-size:10.5px;color:#FD7E14;}
+.b-item-taken{font-size:10.5px;color:#4a6070;display:flex;align-items:center;gap:3px;}
+.add-extra-btn{width:100%;padding:6px;background:#111c26;border:1px dashed #1e2d3d;border-radius:5px;color:#6b7f8e;font-size:11.5px;cursor:pointer;margin-top:6px;text-align:center;}
+.add-extra-btn:hover{border-color:#00d4a8;color:#00d4a8;}
+
+/* MODAL CONFIRMACIÓN */
+.confirm-modal{background:#162030;border:1px solid rgba(253,126,20,.3);border-radius:12px;width:380px;padding:24px;}
+.confirm-icon{width:42px;height:42px;border-radius:50%;background:rgba(253,126,20,.12);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
+.confirm-title{font-size:14px;font-weight:500;color:#e0e6ec;margin-bottom:8px;}
+.confirm-body{font-size:12.5px;color:#8a9db0;line-height:1.6;margin-bottom:18px;}
+.confirm-btns{display:flex;gap:8px;justify-content:flex-end;}
 </style>
 </head>
 <body>
 
 <div class="erp-shell">
-
-  <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="sb-logo"><div class="brand">Bg360</div><div class="sub">ERP Integral</div></div>
     <div class="sb-sec">Menú principal</div>
     <div class="sb-item"><i class="ti ti-home"></i> Inicio</div>
     <div class="sb-sec">Mesa de Servicio</div>
-    <div class="sb-item" onclick="switchView('llamadas')" id="nav-llamadas"><i class="ti ti-phone"></i> Llamadas <span class="bdg">3</span></div>
+    <div class="sb-item" onclick="switchView('llamadas')" id="nav-llamadas"><i class="ti ti-phone"></i> Llamadas</div>
     <div class="sb-item" onclick="switchView('incidentes')" id="nav-incidentes"><i class="ti ti-alert-circle"></i> Incidentes <span class="bdg">5</span></div>
-    <div class="sb-item" onclick="switchView('todos')" id="nav-todos"><i class="ti ti-layout-list"></i> Todos</div>
+    <div class="sb-item"><i class="ti ti-layout-list"></i> Todos</div>
     <div class="sb-item"><i class="ti ti-shield-check"></i> Admin</div>
     <div class="sb-item active" onclick="switchView('masivos')" id="nav-masivos"><i class="ti ti-stack-2"></i> Masivos</div>
     <div class="sb-item"><i class="ti ti-chart-bar"></i> Gerencia</div>
@@ -185,11 +221,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
     <div class="sb-item"><i class="ti ti-settings"></i> Configuración</div>
     <div class="sb-foot">
       <div class="av">JF</div>
-      <div><div style="font-size:12px;color:#c0d0dc;font-weight:500;">JEFERSON FABIAN</div><div style="font-size:10px;color:#00d4a8;">En línea</div></div>
+      <div><div style="font-size:12px;color:#c0d0dc;font-weight:500;">JEFERSON FABIAN</div><div style="font-size:10px;color:#00d4a8;">En línea · Admin</div></div>
     </div>
   </div>
 
-  <!-- MAIN -->
   <div class="main">
     <div class="topbar">
       <div class="tab" onclick="switchView('incidentes')" id="tab-incidentes">Incidentes <span class="x">×</span></div>
@@ -198,25 +233,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 
     <div class="content">
 
-      <!-- ══ VISTA: MASIVOS (ADMIN) ══ -->
+      <!-- ══ VISTA MASIVOS ADMIN ══ -->
       <div class="view active" id="view-masivos">
         <div class="ph">
           <div>
             <div class="ph-title"><i class="ti ti-stack-2"></i> Tickets masivos</div>
             <div class="ph-sub">Creación y seguimiento de actividades masivas · Solo administradores</div>
           </div>
-          <button class="btn-p" onclick="openModal()"><i class="ti ti-plus"></i> Nuevo masivo</button>
+          <button class="btn-p" onclick="document.getElementById('modal-nuevo').classList.add('open')">
+            <i class="ti ti-plus"></i> Nuevo masivo
+          </button>
         </div>
 
         <div class="filters">
           <span class="f-label">Estado</span>
           <select class="f-sel"><option>Todos</option><option>Abierto</option><option>En Progreso</option><option>Completado</option></select>
           <span class="f-label">Zona</span>
-          <select class="f-sel"><option>Todas las zonas</option><option>Zona Norte</option><option>Zona Sur</option><option>Zona Centro</option></select>
+          <select class="f-sel"><option>Todas las zonas</option><option>Zona Norte</option><option>Zona Sur</option></select>
           <span class="f-label">Técnico</span>
           <select class="f-sel" style="min-width:140px;"><option>Todos</option><option>Gelvez Esneyder</option><option>Ivan Sanchez</option><option>María Rodríguez</option></select>
-          <span class="f-label">Fechas</span>
-          <select class="f-sel"><option>Este mes</option><option>Esta semana</option><option>Rango libre</option></select>
           <input class="f-input" type="text" placeholder="Buscar masivo...">
           <button class="btn-p" style="margin-left:auto;"><i class="ti ti-search"></i> Buscar</button>
         </div>
@@ -234,119 +269,117 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
           </div>
           <div class="masivo-det open" id="md0">
             <div class="det-sec">Descripción</div>
-            <p style="font-size:12px;color:#8a9db0;line-height:1.6;margin-bottom:4px;">Actualizar el módulo de facturación en todos los equipos de caja de las tiendas asignadas por zona antes del 5 de agosto.</p>
-            <div class="det-sec">Progreso por zona y técnico</div>
+            <p style="font-size:12px;color:#8a9db0;line-height:1.6;">Actualizar el módulo de facturación en todos los equipos de caja de las tiendas asignadas por zona antes del 5 de agosto.</p>
+            <div class="det-sec">Progreso por zona y técnico — clic en técnico para ver actividad</div>
+
             <div class="zona-block">
               <div class="zona-hdr">
                 <div class="zona-name">Zona Norte</div>
                 <div class="zona-pw"><div class="zona-pf" style="width:80%;"></div></div>
                 <div class="zona-pct">80%</div>
               </div>
-              <div class="tec-row">
+              <!-- TEC 1 -->
+              <div class="tec-row" onclick="toggleTecDetail('td-ge')">
                 <div class="tec-av">GE</div>
                 <div class="tec-name">Gelvez Esneyder</div>
-                <div class="tec-bodegas">STIRPE Guatapurí, Derek Ensueño, Equis Cacique</div>
-                <div class="tec-tickets">8 / 10 tickets</div>
+                <div style="flex:1;"></div>
+                <div class="tec-tickets" style="font-size:13px;font-weight:700;color:#e0e6ec;">3 <span style="font-size:11px;color:#6b7f8e;font-weight:400;">/ 5</span></div>
                 <span class="tec-est e-pr"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
+                <i class="ti ti-chevron-down chev" id="chev-td-ge"></i>
               </div>
-              <div class="tec-row">
+              <div class="tec-detail" id="td-ge">
+                <div style="font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Actividad registrada</div>
+                <div class="tec-note">
+                  <span class="note-time">28/7 · 10:02</span>
+                  <span class="note-body">Marcó <strong>STIRPE Guatapurí</strong> como solucionada. Nota: "Actualización exitosa, se reinició el equipo."</span>
+                </div>
+                <div class="tec-note">
+                  <span class="note-time">28/7 · 11:45</span>
+                  <span class="note-body">Marcó <strong>Derek Ensueño</strong> como solucionada. Sin nota.</span>
+                </div>
+                <div class="tec-note">
+                  <span class="note-time">28/7 · 14:10</span>
+                  <span class="note-body">Marcó <strong>Equis Cacique</strong> como solucionada. Nota: "Equipo presentó fallo inicial, se resolvió reinstalando."</span>
+                </div>
+                <div class="tec-note">
+                  <span class="note-time">—</span>
+                  <span class="note-body" style="color:#4a6070;">STIRPE Barranca y Derek Primavera aún pendientes.</span>
+                </div>
+                <div style="margin-top:10px;background:rgba(255,193,7,.06);border:1px solid rgba(255,193,7,.2);border-radius:6px;padding:7px 10px;font-size:11.5px;color:#e6ac00;display:flex;align-items:center;gap:6px;">
+                  <i class="ti ti-alert-triangle"></i> Aún hay bodegas pendientes. El botón Aceptar se activa cuando todas estén solucionadas.
+                </div>
+                <div style="display:flex;gap:8px;margin-top:8px;">
+                  <button disabled style="font-size:11px;padding:5px 10px;background:#1e2d3d;color:#4a6070;border:none;border-radius:6px;cursor:not-allowed;display:flex;align-items:center;gap:5px;"><i class="ti ti-check"></i> Aceptar</button>
+                  <button class="btn-s" style="font-size:11px;padding:5px 10px;color:#e05252;border-color:rgba(224,82,82,.3);"><i class="ti ti-x"></i> Rechazar</button>
+                </div>
+              </div>
+              <!-- TEC 2 -->
+              <div class="tec-row" onclick="toggleTecDetail('td-mr')">
                 <div class="tec-av" style="background:#00a884;">MR</div>
                 <div class="tec-name">María Rodríguez</div>
-                <div class="tec-bodegas">Derek Primavera, STIRPE Tunal</div>
-                <div class="tec-tickets">5 / 5 tickets</div>
-                <span class="tec-est e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span>
+                <div style="flex:1;"></div>
+                <div class="tec-tickets" style="font-size:13px;font-weight:700;color:#e0e6ec;">2 <span style="font-size:11px;color:#6b7f8e;font-weight:400;">/ 2</span></div>
+                <span class="tec-est e-co"><span class="sdot" style="background:#28A745;"></span> Solucionado</span>
+                <i class="ti ti-chevron-down chev" id="chev-td-mr"></i>
+              </div>
+              <div class="tec-detail" id="td-mr">
+                <div style="font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Actividad registrada</div>
+                <div class="tec-note">
+                  <span class="note-time">28/7 · 09:30</span>
+                  <span class="note-body">Marcó <strong>Derek Primavera</strong> como solucionada. Nota: "Sin inconvenientes."</span>
+                </div>
+                <div class="tec-note">
+                  <span class="note-time">28/7 · 10:55</span>
+                  <span class="note-body">Marcó <strong>STIRPE Tunal</strong> como solucionada. Sin nota.</span>
+                </div>
+                <div style="display:flex;gap:8px;margin-top:10px;">
+                  <button class="btn-p" style="font-size:11px;padding:5px 10px;background:#28A745;cursor:default;"><i class="ti ti-check"></i> Aceptado</button>
+                </div>
               </div>
             </div>
+
             <div class="zona-block">
               <div class="zona-hdr">
                 <div class="zona-name">Zona Sur</div>
-                <div class="zona-pw"><div class="zona-pf" style="width:45%;"></div></div>
-                <div class="zona-pct">45%</div>
+                <div class="zona-pw"><div class="zona-pf" style="width:30%;"></div></div>
+                <div class="zona-pct">30%</div>
               </div>
-              <div class="tec-row">
+              <div class="tec-row" onclick="toggleTecDetail('td-is')">
                 <div class="tec-av" style="background:#007a60;">IS</div>
                 <div class="tec-name">Ivan Sanchez</div>
-                <div class="tec-bodegas">Derek Arboleda, STIRPE Plaza Américas, U82 Titan</div>
-                <div class="tec-tickets">5 / 10 tickets</div>
+                <div style="flex:1;"></div>
+                <div class="tec-tickets" style="font-size:13px;font-weight:700;color:#e0e6ec;">1 <span style="font-size:11px;color:#6b7f8e;font-weight:400;">/ 3</span></div>
                 <span class="tec-est e-pr"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
+                <i class="ti ti-chevron-down chev" id="chev-td-is"></i>
               </div>
-              <div class="tec-row">
-                <div class="tec-av" style="background:#005244;">CP</div>
-                <div class="tec-name">Carlos Pérez</div>
-                <div class="tec-bodegas">Travel LCuesta, Derek Cañaveral</div>
-                <div class="tec-tickets">0 / 8 tickets</div>
-                <span class="tec-est e-ab"><span class="sdot" style="background:#5b9bf8;"></span> Abierto</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- MASIVO 2 -->
-        <div class="masivo-card">
-          <div class="masivo-hdr" id="mh1" onclick="toggleMasivo(1)">
-            <span class="m-badge">MASIVO</span>
-            <div class="m-title">Cambio de contraseñas administrativas — todas las sedes</div>
-            <div class="m-meta">Creado 15 jul · Vence 31 jul</div>
-            <span class="m-estado e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span>
-            <div class="m-pw"><div class="m-pf" style="width:100%;"></div></div>
-            <div class="m-pct">100%</div>
-            <i class="ti ti-chevron-down chev" id="mc1"></i>
-          </div>
-          <div class="masivo-det" id="md1">
-            <div class="det-sec">Descripción</div>
-            <p style="font-size:12px;color:#8a9db0;line-height:1.6;margin-bottom:4px;">Cambio obligatorio de contraseñas en todos los sistemas por política de seguridad corporativa.</p>
-            <div class="det-sec">Progreso por zona y técnico</div>
-            <div class="zona-block">
-              <div class="zona-hdr">
-                <div class="zona-name">Zona Centro</div>
-                <div class="zona-pw"><div class="zona-pf" style="width:100%;"></div></div>
-                <div class="zona-pct">100%</div>
-              </div>
-              <div class="tec-row">
-                <div class="tec-av">GE</div>
-                <div class="tec-name">Gelvez Esneyder</div>
-                <div class="tec-bodegas">12 bodegas asignadas</div>
-                <div class="tec-tickets">12 / 12 tickets</div>
-                <span class="tec-est e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- MASIVO 3 -->
-        <div class="masivo-card">
-          <div class="masivo-hdr" id="mh2" onclick="toggleMasivo(2)">
-            <span class="m-badge">MASIVO</span>
-            <div class="m-title">Instalación de nuevo sistema de inventario</div>
-            <div class="m-meta">Creado 01 ago · Vence 15 ago</div>
-            <span class="m-estado e-ab"><span class="sdot" style="background:#5b9bf8;"></span> Abierto</span>
-            <div class="m-pw"><div class="m-pf" style="width:0%;"></div></div>
-            <div class="m-pct">0%</div>
-            <i class="ti ti-chevron-down chev" id="mc2"></i>
-          </div>
-          <div class="masivo-det" id="md2">
-            <div class="det-sec">Descripción</div>
-            <p style="font-size:12px;color:#8a9db0;line-height:1.6;margin-bottom:4px;">Instalación del nuevo módulo de inventario en todos los puntos de venta. Requiere reinicio posterior.</p>
-            <div class="det-sec">Progreso por zona y técnico</div>
-            <div class="zona-block">
-              <div class="zona-hdr">
-                <div class="zona-name">Zona Norte</div>
-                <div class="zona-pw"><div class="zona-pf" style="width:0%;"></div></div>
-                <div class="zona-pct">0%</div>
-              </div>
-              <div class="tec-row">
-                <div class="tec-av" style="background:#007a60;">IS</div>
-                <div class="tec-name">Ivan Sanchez</div>
-                <div class="tec-bodegas">STIRPE Guatapurí, STIRPE Tunal, Derek Ensueño</div>
-                <div class="tec-tickets">0 / 15 tickets</div>
-                <span class="tec-est e-ab"><span class="sdot" style="background:#5b9bf8;"></span> Abierto</span>
+              <div class="tec-detail" id="td-is">
+                <div style="font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Actividad registrada</div>
+                <div class="tec-note">
+                  <span class="note-time">29/7 · 08:15</span>
+                  <span class="note-body">Marcó <strong>Derek Arboleda</strong> como solucionada. Nota: "Actualizado, equipo sin inconvenientes."</span>
+                </div>
+                <div class="tec-note">
+                  <span class="note-time">29/7 · 09:40</span>
+                  <span class="note-body">Marcó <strong>STIRPE Plaza Américas</strong> como solucionada. Sin nota.</span>
+                </div>
+                <div class="tec-note" style="background:rgba(253,126,20,.06);border-radius:6px;padding:6px 8px;border-left:2px solid #FD7E14;">
+                  <span class="note-time" style="color:#FD7E14;">29/7 · 10:22</span>
+                  <span class="note-body"><i class="ti ti-alert-circle" style="color:#FD7E14;font-size:12px;"></i> Reportó <strong>novedad</strong> en <strong>U82 Titan</strong>. Tipo: <em>Equipo dañado</em>. Nota: "El equipo de caja no enciende, requiere revisión técnica presencial."</span>
+                </div>
+                <div style="margin-top:8px;background:rgba(253,126,20,.06);border:1px solid rgba(253,126,20,.2);border-radius:6px;padding:7px 10px;font-size:11.5px;color:#FD7E14;display:flex;align-items:center;gap:6px;">
+                  <i class="ti ti-alert-triangle"></i> Hay una novedad reportada en U82 Titan. Puedes aceptar el avance con esta novedad o rechazarlo.
+                </div>
+                <div style="display:flex;gap:8px;margin-top:8px;">
+                  <button class="btn-p" style="font-size:11px;padding:5px 10px;"><i class="ti ti-check"></i> Aceptar</button>
+                  <button class="btn-s" style="font-size:11px;padding:5px 10px;color:#e05252;border-color:rgba(224,82,82,.3);"><i class="ti ti-x"></i> Rechazar</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="pag">
-          <span>3 de 3 masivos</span>
+          <span>1 de 3 masivos</span>
           <div class="pag-btns">
             <button class="pag-btn">← Anterior</button>
             <button class="pag-btn active">Pág. 1</button>
@@ -355,26 +388,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
         </div>
       </div>
 
-      <!-- ══ VISTA: INCIDENTES (TÉCNICO) ══ -->
+      <!-- ══ VISTA INCIDENTES TÉCNICO ══ -->
       <div class="view" id="view-incidentes">
         <div class="ph">
           <div>
             <div class="ph-title"><i class="ti ti-alert-circle"></i> Incidentes</div>
             <div class="ph-sub">Tus incidentes asignados — incluyendo tareas masivas</div>
           </div>
-          <div class="btn-row">
-            <button class="btn-s"><i class="ti ti-file-spreadsheet"></i> Exportar Excel</button>
-          </div>
+          <button class="btn-s"><i class="ti ti-file-spreadsheet"></i> Exportar Excel</button>
         </div>
 
         <div class="filters">
           <span class="f-label">Estado</span>
-          <select class="f-sel"><option>Todos los estados</option><option>Abierto</option><option>En Progreso</option><option>Solucionado</option></select>
+          <select class="f-sel"><option>Todos</option><option>Abierto</option><option>En Progreso</option><option>Solucionado</option></select>
           <span class="f-label">Tipo</span>
           <select class="f-sel"><option>Todos</option><option>Incidente</option><option>Masivo</option></select>
-          <span class="f-label">Prioridad</span>
-          <select class="f-sel"><option>Todas</option><option>Alta</option><option>Media</option><option>Baja</option></select>
-          <input class="f-input" type="text" placeholder="Buscar incidente...">
+          <input class="f-input" type="text" placeholder="Buscar...">
           <button class="btn-p" style="margin-left:auto;"><i class="ti ti-search"></i> Buscar</button>
         </div>
 
@@ -382,102 +411,147 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
           <table class="tbl">
             <thead>
               <tr>
-                <th>Tipo</th>
-                <th>Nro.</th>
-                <th>Estado</th>
-                <th>Prioridad</th>
-                <th>Bodega</th>
-                <th>Clasificación / Categoría</th>
-                <th>Descripción</th>
-                <th>F. Registro</th>
-                <th>Acciones</th>
+                <th>Tipo</th><th>Nro.</th><th>Estado</th><th>Prioridad</th>
+                <th>Bodega / Zona</th><th>Descripción</th><th>F. Registro</th><th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-              <!-- INCIDENTE NORMAL 1 -->
               <tr>
-                <td><span class="bdg-tipo b-inc"><i class="ti ti-alert-circle" style="font-size:11px;"></i> Incidente</span></td>
+                <td><span class="bdg b-inc"><i class="ti ti-alert-circle" style="font-size:11px;"></i> Incidente</span></td>
                 <td style="font-weight:600;color:#00d4a8;">#311186</td>
-                <td><span class="bdg-tipo b-pr"><span class="sdot" style="background:#FFC107;"></span>En Progreso</span></td>
-                <td><span class="bdg-tipo b-prio-a">Alta</span></td>
+                <td><span class="bdg b-pr"><span class="sdot" style="background:#FFC107;"></span>En Progreso</span></td>
+                <td><span class="bdg b-prio-a">Alta</span></td>
                 <td style="font-size:11.5px;">20 - Jurídico</td>
-                <td style="font-size:11.5px;">Hardware / Mouse</td>
                 <td style="color:#e0e6ec;">MOUSE FALLANDO</td>
-                <td style="font-size:11px;color:#6b7f8e;white-space:nowrap;">18/6/26 9:48 AM</td>
-                <td><button class="action-btn" title="Ver detalle"><i class="ti ti-eye"></i></button><button class="action-btn" title="Editar"><i class="ti ti-edit"></i></button></td>
+                <td style="font-size:11px;color:#6b7f8e;white-space:nowrap;">18/6/26 9:48</td>
+                <td><button class="action-btn"><i class="ti ti-eye"></i></button><button class="action-btn"><i class="ti ti-edit"></i></button></td>
               </tr>
 
-              <!-- MASIVO -->
-              <tr class="masivo-row" onclick="toggleInline(0)" title="Clic para ver detalle del masivo">
-                <td><span class="bdg-tipo b-mas"><i class="ti ti-stack-2" style="font-size:11px;"></i> Masivo</span></td>
+              <!-- FILA MASIVO -->
+              <tr class="masivo-row" onclick="toggleInline()">
+                <td><span class="bdg b-mas"><i class="ti ti-stack-2" style="font-size:11px;"></i> Masivo</span></td>
                 <td style="font-weight:600;color:#a09be8;">#MAS-001</td>
-                <td><span class="bdg-tipo b-pr"><span class="sdot" style="background:#FFC107;"></span>En Progreso</span></td>
-                <td><span class="bdg-tipo b-prio-m">Media</span></td>
+                <td><span class="bdg b-pr"><span class="sdot" style="background:#FFC107;"></span>En Progreso</span></td>
+                <td><span class="bdg b-prio-m">Media</span></td>
                 <td style="font-size:11.5px;">Zona Norte</td>
-                <td style="font-size:11.5px;">Masivo / Actualización</td>
                 <td style="color:#e0e6ec;">Actualización de software en equipos de tiendas</td>
                 <td style="font-size:11px;color:#6b7f8e;white-space:nowrap;">28/7/26</td>
-                <td><button class="action-btn" title="Ver detalle"><i class="ti ti-eye"></i></button></td>
+                <td><button class="action-btn" onclick="event.stopPropagation()"><i class="ti ti-eye"></i></button></td>
               </tr>
-              <!-- DETALLE MASIVO INLINE -->
-              <tr id="inline-0" style="display:none;">
-                <td colspan="9" style="padding:0;">
+
+              <!-- DETALLE MASIVO INLINE TÉCNICO -->
+              <tr id="inline-tec" style="display:none;">
+                <td colspan="8" style="padding:0;">
                   <div class="masivo-inline open">
-                    <div class="mi-title"><i class="ti ti-stack-2" style="font-size:13px;"></i> Detalle del masivo — Zona Norte asignada a Gelvez Esneyder</div>
-                    <div class="mi-desc">Actualizar el módulo de facturación en todos los equipos de caja de las tiendas asignadas. Vence el 05 de agosto.</div>
-                    <div class="mi-sec">Progreso general</div>
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-                      <div style="flex:1;background:#1e2d3d;border-radius:3px;height:6px;"><div style="width:80%;height:6px;border-radius:3px;background:#00d4a8;"></div></div>
-                      <span style="font-size:12px;color:#00d4a8;font-weight:600;">80% completado</span>
-                      <span style="font-size:11px;color:#6b7f8e;">8 / 10 bodegas</span>
+                    <div class="mi-title"><i class="ti ti-stack-2"></i> Masivo #MAS-001 — Zona Norte · Actualización de software</div>
+                    <div class="mi-desc">Actualizar el módulo de facturación en todos los equipos de caja de tus tiendas asignadas. Vence el 05 de agosto.</div>
+
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+                      <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:60%;"></div></div>
+                      <span style="font-size:12px;color:#00d4a8;font-weight:600;">60%</span>
+                      <span style="font-size:11px;color:#6b7f8e;">3 / 5 bodegas</span>
                     </div>
-                    <div class="mi-sec">Bodegas asignadas</div>
-                    <div class="bodega-row"><div class="bodega-name">STIRPE Guatapurí (8580)</div><div class="prog-wrap"><div class="prog-fill" style="width:100%;"></div></div><div class="prog-pct">100%</div><span class="bodega-estado e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span></div>
-                    <div class="bodega-row"><div class="bodega-name">Derek Ensueño (545)</div><div class="prog-wrap"><div class="prog-fill" style="width:100%;"></div></div><div class="prog-pct">100%</div><span class="bodega-estado e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span></div>
-                    <div class="bodega-row"><div class="bodega-name">Equis Cacique 2 (8130)</div><div class="prog-wrap"><div class="prog-fill" style="width:100%;"></div></div><div class="prog-pct">100%</div><span class="bodega-estado e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span></div>
-                    <div class="bodega-row"><div class="bodega-name">Derek La Colina (865)</div><div class="prog-wrap"><div class="prog-fill" style="width:100%;"></div></div><div class="prog-pct">100%</div><span class="bodega-estado e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span></div>
-                    <div class="bodega-row"><div class="bodega-name">STIRPE Unicentro P2 (631)</div><div class="prog-wrap"><div class="prog-fill" style="width:100%;"></div></div><div class="prog-pct">100%</div><span class="bodega-estado e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span></div>
-                    <div class="bodega-row"><div class="bodega-name">STIRPE Cacique 2 (8150)</div><div class="prog-wrap"><div class="prog-fill" style="width:100%;"></div></div><div class="prog-pct">100%</div><span class="bodega-estado e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span></div>
-                    <div class="bodega-row"><div class="bodega-name">Derek Villavicencio 2 (8370)</div><div class="prog-wrap"><div class="prog-fill" style="width:100%;"></div></div><div class="prog-pct">100%</div><span class="bodega-estado e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span></div>
-                    <div class="bodega-row"><div class="bodega-name">Travel LCuesta (8360)</div><div class="prog-wrap"><div class="prog-fill" style="width:100%;"></div></div><div class="prog-pct">100%</div><span class="bodega-estado e-co"><span class="sdot" style="background:#28A745;"></span> Completado</span></div>
-                    <div class="bodega-row"><div class="bodega-name">STIRPE Barranca (520)</div><div class="prog-wrap"><div class="prog-fill" style="width:0%;"></div></div><div class="prog-pct">0%</div><span class="bodega-estado b-pr"><span class="sdot" style="background:#FFC107;"></span> Pendiente</span></div>
-                    <div class="bodega-row"><div class="bodega-name">Derek Primavera (8510)</div><div class="prog-wrap"><div class="prog-fill" style="width:0%;"></div></div><div class="prog-pct">0%</div><span class="bodega-estado b-pr"><span class="sdot" style="background:#FFC107;"></span> Pendiente</span></div>
-                    <div style="margin-top:12px;display:flex;justify-content:flex-end;"><button class="btn-p" onclick="event.stopPropagation()"><i class="ti ti-check"></i> Reportar avance</button></div>
+
+                    <div class="mi-sec">Reportar avance por bodega</div>
+                    <div style="background:#162030;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;">
+
+                      <div class="bodega-row" style="padding:8px 12px;">
+                        <div class="bodega-name">STIRPE Guatapurí (8580)</div>
+                        <span class="bdg b-so" style="font-size:11px;margin-right:8px;"><span class="sdot" style="background:#28A745;"></span> Solucionada</span>
+                        <div class="bodega-check done" title="Solucionada">✓</div>
+                      </div>
+
+                      <div class="bodega-row" style="padding:8px 12px;">
+                        <div class="bodega-name">Derek Ensueño (545)</div>
+                        <span class="bdg b-so" style="font-size:11px;margin-right:8px;"><span class="sdot" style="background:#28A745;"></span> Solucionada</span>
+                        <div class="bodega-check done" title="Solucionada">✓</div>
+                      </div>
+
+                      <div class="bodega-row" style="padding:8px 12px;">
+                        <div class="bodega-name">Equis Cacique 2 (8130)</div>
+                        <span class="bdg b-so" style="font-size:11px;margin-right:8px;"><span class="sdot" style="background:#28A745;"></span> Solucionada</span>
+                        <div class="bodega-check done" title="Solucionada">✓</div>
+                      </div>
+
+                      <!-- BODEGA PENDIENTE 1 -->
+                      <div style="padding:8px 12px;border-bottom:1px solid #1a2836;">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                          <div class="bodega-name">STIRPE Barranca (520)</div>
+                          <span class="bdg b-ab" style="font-size:10.5px;"><span class="sdot" style="background:#5b9bf8;"></span> Abierta</span>
+                        </div>
+                        <input class="bodega-note-input" type="text" placeholder="Nota (opcional)..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
+                        <div style="display:flex;gap:6px;">
+                          <button onclick="event.stopPropagation();marcarSolucionadaNew(this)" style="flex:1;padding:5px 8px;background:rgba(40,167,69,.1);border:1px solid rgba(40,167,69,.25);border-radius:5px;color:#28A745;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
+                            <i class="ti ti-check"></i> Solucionada
+                          </button>
+                          <button onclick="event.stopPropagation();reportarNovedad(this)" style="flex:1;padding:5px 8px;background:rgba(253,126,20,.08);border:1px solid rgba(253,126,20,.25);border-radius:5px;color:#FD7E14;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
+                            <i class="ti ti-alert-circle"></i> Reportar novedad
+                          </button>
+                        </div>
+                        <div class="novedad-form" style="display:none;margin-top:6px;">
+                          <select onclick="event.stopPropagation()" class="bodega-note-input" style="width:100%;margin-bottom:4px;">
+                            <option>Selecciona tipo de novedad...</option>
+                            <option>Equipo dañado</option>
+                            <option>Sin acceso</option>
+                            <option>Tienda cerrada</option>
+                            <option>Problema de red</option>
+                            <option>Otro</option>
+                          </select>
+                          <input class="bodega-note-input" type="text" placeholder="Describe la novedad..." onclick="event.stopPropagation()" style="width:100%;">
+                        </div>
+                      </div>
+
+                      <!-- BODEGA PENDIENTE 2 -->
+                      <div style="padding:8px 12px;">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                          <div class="bodega-name">Derek Primavera (8510)</div>
+                          <span class="bdg b-ab" style="font-size:10.5px;"><span class="sdot" style="background:#5b9bf8;"></span> Abierta</span>
+                        </div>
+                        <input class="bodega-note-input" type="text" placeholder="Nota (opcional)..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
+                        <div style="display:flex;gap:6px;">
+                          <button onclick="event.stopPropagation();marcarSolucionadaNew(this)" style="flex:1;padding:5px 8px;background:rgba(40,167,69,.1);border:1px solid rgba(40,167,69,.25);border-radius:5px;color:#28A745;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
+                            <i class="ti ti-check"></i> Solucionada
+                          </button>
+                          <button onclick="event.stopPropagation();reportarNovedad(this)" style="flex:1;padding:5px 8px;background:rgba(253,126,20,.08);border:1px solid rgba(253,126,20,.25);border-radius:5px;color:#FD7E14;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
+                            <i class="ti ti-alert-circle"></i> Reportar novedad
+                          </button>
+                        </div>
+                        <div class="novedad-form" style="display:none;margin-top:6px;">
+                          <select onclick="event.stopPropagation()" class="bodega-note-input" style="width:100%;margin-bottom:4px;">
+                            <option>Selecciona tipo de novedad...</option>
+                            <option>Equipo dañado</option>
+                            <option>Sin acceso</option>
+                            <option>Tienda cerrada</option>
+                            <option>Problema de red</option>
+                            <option>Otro</option>
+                          </select>
+                          <input class="bodega-note-input" type="text" placeholder="Describe la novedad..." onclick="event.stopPropagation()" style="width:100%;">
+                        </div>
+                      </div>
+                    </div>
+                    <div style="margin-top:12px;display:flex;justify-content:flex-end;">
+                      <button class="btn-p" onclick="event.stopPropagation()"><i class="ti ti-send"></i> Guardar reporte</button>
+                    </div>
                   </div>
                 </td>
               </tr>
 
-              <!-- INCIDENTE NORMAL 2 -->
               <tr>
-                <td><span class="bdg-tipo b-inc"><i class="ti ti-alert-circle" style="font-size:11px;"></i> Incidente</span></td>
+                <td><span class="bdg b-inc"><i class="ti ti-alert-circle" style="font-size:11px;"></i> Incidente</span></td>
                 <td style="font-weight:600;color:#00d4a8;">#311113</td>
-                <td><span class="bdg-tipo b-ab"><span class="sdot" style="background:#5b9bf8;"></span>Abierto</span></td>
-                <td><span class="bdg-tipo b-prio-a">Alta</span></td>
+                <td><span class="bdg b-ab"><span class="sdot" style="background:#5b9bf8;"></span>Abierto</span></td>
+                <td><span class="bdg b-prio-a">Alta</span></td>
                 <td style="font-size:11.5px;">20 - Jurídico</td>
-                <td style="font-size:11.5px;">Hardware / Teclado</td>
-                <td style="color:#e0e6ec;">FALLA DE TECLADO Y MOUSE</td>
-                <td style="font-size:11px;color:#6b7f8e;white-space:nowrap;">17/6/26 1:09 PM</td>
-                <td><button class="action-btn" title="Ver detalle"><i class="ti ti-eye"></i></button><button class="action-btn" title="Editar"><i class="ti ti-edit"></i></button></td>
-              </tr>
-
-              <!-- INCIDENTE NORMAL 3 -->
-              <tr>
-                <td><span class="bdg-tipo b-inc"><i class="ti ti-alert-circle" style="font-size:11px;"></i> Incidente</span></td>
-                <td style="font-weight:600;color:#00d4a8;">#310922</td>
-                <td><span class="bdg-tipo b-ab"><span class="sdot" style="background:#5b9bf8;"></span>Abierto</span></td>
-                <td><span class="bdg-tipo b-prio-m">Media</span></td>
-                <td style="font-size:11.5px;">20 - Jurídico</td>
-                <td style="font-size:11.5px;">Hardware / Mouse</td>
-                <td style="color:#e0e6ec;">MOUSE DAÑADA LA RUEDA</td>
-                <td style="font-size:11px;color:#6b7f8e;white-space:nowrap;">16/6/26 3:16 PM</td>
-                <td><button class="action-btn" title="Ver detalle"><i class="ti ti-eye"></i></button><button class="action-btn" title="Editar"><i class="ti ti-edit"></i></button></td>
+                <td style="color:#e0e6ec;">FALLA DE TECLADO</td>
+                <td style="font-size:11px;color:#6b7f8e;white-space:nowrap;">17/6/26 13:09</td>
+                <td><button class="action-btn"><i class="ti ti-eye"></i></button><button class="action-btn"><i class="ti ti-edit"></i></button></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="pag">
-          <span>4 de 5 registros · <span style="color:#a09be8;">1 masivo</span> · <span style="color:#00d4a8;">4 incidentes</span></span>
+          <span>3 registros · <span style="color:#a09be8;">1 masivo</span> · <span style="color:#00d4a8;">2 incidentes</span></span>
           <div class="pag-btns">
             <button class="pag-btn">← Anterior</button>
             <button class="pag-btn active">Pág. 1</button>
@@ -486,29 +560,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
         </div>
       </div>
 
-      <!-- PLACEHOLDER TODOS -->
-      <div class="view" id="view-todos">
-        <div class="ph"><div><div class="ph-title"><i class="ti ti-layout-list"></i> Todos</div><div class="ph-sub">Vista unificada</div></div></div>
-        <div style="background:#162030;border:1px solid #1e2d3d;border-radius:8px;padding:60px;text-align:center;color:#6b7f8e;"><i class="ti ti-layout-list" style="font-size:32px;color:#00d4a8;display:block;margin-bottom:10px;"></i>Vista Todos — Fase 2</div>
-      </div>
-
       <div class="view" id="view-llamadas">
-        <div class="ph"><div><div class="ph-title"><i class="ti ti-phone"></i> Llamadas</div><div class="ph-sub">Vista existente</div></div></div>
-        <div style="background:#162030;border:1px solid #1e2d3d;border-radius:8px;padding:60px;text-align:center;color:#6b7f8e;"><i class="ti ti-phone" style="font-size:32px;color:#00d4a8;display:block;margin-bottom:10px;"></i>Vista de Llamadas existente</div>
+        <div class="ph"><div><div class="ph-title"><i class="ti ti-phone"></i> Llamadas</div></div></div>
+        <div style="background:#162030;border:1px solid #1e2d3d;border-radius:8px;padding:60px;text-align:center;color:#6b7f8e;">
+          <i class="ti ti-phone" style="font-size:32px;color:#00d4a8;display:block;margin-bottom:10px;"></i>Vista de Llamadas existente
+        </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- MODAL NUEVO MASIVO -->
-<div class="modal-overlay" id="modal">
+<!-- ══ MODAL NUEVO MASIVO ══ -->
+<div class="overlay" id="modal-nuevo">
   <div class="modal">
-    <div class="modal-header">
+    <div class="modal-hdr">
       <div class="modal-title"><i class="ti ti-stack-2" style="color:#a09be8;margin-right:6px;"></i> Nuevo masivo</div>
-      <button class="modal-close" onclick="closeModal()"><i class="ti ti-x"></i></button>
+      <button class="modal-close" onclick="document.getElementById('modal-nuevo').classList.remove('open')"><i class="ti ti-x"></i></button>
     </div>
     <div class="modal-body">
+
       <div class="form-group">
         <label class="form-label">Título de la actividad <span>*</span></label>
         <input class="form-input" type="text" placeholder="Ej: Actualización de software en equipos de tiendas">
@@ -527,72 +597,148 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
           <input class="form-input" type="date">
         </div>
       </div>
+
       <div class="form-group">
         <label class="form-label" style="margin-bottom:8px;">Asignar técnicos y bodegas <span>*</span></label>
-        <div style="font-size:11px;color:#6b7f8e;margin-bottom:8px;">Selecciona uno o varios técnicos. Cada uno tiene sus bodegas predeterminadas — puedes ajustarlas.</div>
-        <div class="agente-selector">
-          <div class="agente-item selected" onclick="toggleAgente(this)">
-            <div class="agente-check checked">✓</div>
-            <div class="agente-av" style="width:24px;height:24px;border-radius:50%;background:#00d4a8;color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;">GE</div>
+        <div style="font-size:11px;color:#6b7f8e;margin-bottom:10px;">Selecciona uno o varios técnicos. Cada uno tiene sus bodegas predeterminadas. Puedes quitar bodegas o agregar otras — si una bodega pertenece a otro técnico, se te pedirá confirmación.</div>
+
+        <!-- TÉCNICO 1 -->
+        <div class="agente-block">
+          <div class="agente-hdr selected" onclick="toggleAgente(0)">
+            <div class="agente-check checked" id="ac0">✓</div>
+            <div class="agente-av" style="background:#00d4a8;">GE</div>
             <div class="agente-info">
               <div class="agente-name">Gelvez Esneyder</div>
-              <div class="agente-bodegas">STIRPE Guatapurí, Derek Ensueño, Equis Cacique, Derek La Colina +6 más</div>
+              <div class="agente-zona">Zona Norte · 10 bodegas predeterminadas</div>
             </div>
-            <div class="agente-zona">Zona Norte</div>
+            <i class="ti ti-chevron-down chev open" id="achev0"></i>
           </div>
-          <div class="agente-item" onclick="toggleAgente(this)">
-            <div class="agente-check"></div>
-            <div class="agente-av" style="width:24px;height:24px;border-radius:50%;background:#007a60;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;">IS</div>
-            <div class="agente-info">
-              <div class="agente-name">Ivan Sanchez</div>
-              <div class="agente-bodegas">Derek Arboleda, STIRPE Plaza Américas, U82 Titan +4 más</div>
+          <div class="agente-body open" id="ab0">
+            <div class="bodega-selector-title">
+              Bodegas predeterminadas
+              <button onclick="toggleAllBodegas('ge', true)">Seleccionar todas</button>
             </div>
-            <div class="agente-zona">Zona Sur</div>
-          </div>
-          <div class="agente-item" onclick="toggleAgente(this)">
-            <div class="agente-check"></div>
-            <div class="agente-av" style="width:24px;height:24px;border-radius:50%;background:#00a884;color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;">MR</div>
-            <div class="agente-info">
-              <div class="agente-name">María Rodríguez</div>
-              <div class="agente-bodegas">Derek Primavera, STIRPE Tunal, Travel LCuesta +3 más</div>
+            <div id="bodegas-ge">
+              <div class="bodega-item selected-b" onclick="toggleBodega(this,'ge','STIRPE Guatapurí')">
+                <div class="bchk on">✓</div><div class="b-item-name">STIRPE Guatapurí (8580)</div>
+              </div>
+              <div class="bodega-item selected-b" onclick="toggleBodega(this,'ge','Derek Ensueño')">
+                <div class="bchk on">✓</div><div class="b-item-name">Derek Ensueño (545)</div>
+              </div>
+              <div class="bodega-item selected-b" onclick="toggleBodega(this,'ge','Equis Cacique 2')">
+                <div class="bchk on">✓</div><div class="b-item-name">Equis Cacique 2 (8130)</div>
+              </div>
+              <div class="bodega-item selected-b" onclick="toggleBodega(this,'ge','Derek La Colina')">
+                <div class="bchk on">✓</div><div class="b-item-name">Derek La Colina (865)</div>
+              </div>
+              <div class="bodega-item" onclick="toggleBodega(this,'ge','STIRPE Unicentro P2')">
+                <div class="bchk"></div><div class="b-item-name">STIRPE Unicentro P2 (631)</div>
+              </div>
             </div>
-            <div class="agente-zona">Zona Norte</div>
-          </div>
-          <div class="agente-item" onclick="toggleAgente(this)">
-            <div class="agente-check"></div>
-            <div class="agente-av" style="width:24px;height:24px;border-radius:50%;background:#005244;color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;">CP</div>
-            <div class="agente-info">
-              <div class="agente-name">Carlos Pérez</div>
-              <div class="agente-bodegas">Derek Cañaveral, STIRPE Cacique 2, Derek Villavicencio +2 más</div>
+            <button class="add-extra-btn" onclick="showExtraBodegas('ge')">
+              <i class="ti ti-plus" style="font-size:11px;"></i> Agregar bodega de otra zona
+            </button>
+            <div id="extra-ge" style="display:none;margin-top:8px;">
+              <div style="font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Otras bodegas disponibles</div>
+              <div class="bodega-item already-assigned" title="Ya asignada a Ivan Sanchez en este masivo">
+                <div class="bchk blocked"><i class="ti ti-lock" style="font-size:9px;"></i></div>
+                <div class="b-item-name">Derek Arboleda (810)</div>
+                <div class="b-item-taken"><span class="sdot" style="background:#FD7E14;"></span> Asignada a Ivan Sanchez</div>
+              </div>
+              <div class="bodega-item" onclick="confirmOtraZona(this,'STIRPE Plaza Américas','Ivan Sanchez')">
+                <div class="bchk"></div>
+                <div class="b-item-name">STIRPE Plaza Américas (781)</div>
+                <div class="b-item-owner">Pertenece a Ivan Sanchez</div>
+              </div>
+              <div class="bodega-item" onclick="confirmOtraZona(this,'Derek Cañaveral','Carlos Pérez')">
+                <div class="bchk"></div>
+                <div class="b-item-name">Derek Cañaveral (200)</div>
+                <div class="b-item-owner">Pertenece a Carlos Pérez</div>
+              </div>
             </div>
-            <div class="agente-zona">Zona Sur</div>
           </div>
         </div>
+
+        <!-- TÉCNICO 2 -->
+        <div class="agente-block">
+          <div class="agente-hdr" onclick="toggleAgente(1)">
+            <div class="agente-check" id="ac1"></div>
+            <div class="agente-av" style="background:#007a60;color:#fff;">IS</div>
+            <div class="agente-info">
+              <div class="agente-name">Ivan Sanchez</div>
+              <div class="agente-zona">Zona Sur · 8 bodegas predeterminadas</div>
+            </div>
+            <i class="ti ti-chevron-down chev" id="achev1"></i>
+          </div>
+          <div class="agente-body" id="ab1">
+            <div class="bodega-selector-title">Bodegas predeterminadas<button>Seleccionar todas</button></div>
+            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">Derek Arboleda (810)</div></div>
+            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">STIRPE Plaza Américas (781)</div></div>
+            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">U82 Titan (557)</div></div>
+            <button class="add-extra-btn"><i class="ti ti-plus" style="font-size:11px;"></i> Agregar bodega de otra zona</button>
+          </div>
+        </div>
+
+        <!-- TÉCNICO 3 -->
+        <div class="agente-block">
+          <div class="agente-hdr" onclick="toggleAgente(2)">
+            <div class="agente-check" id="ac2"></div>
+            <div class="agente-av" style="background:#00a884;">MR</div>
+            <div class="agente-info">
+              <div class="agente-name">María Rodríguez</div>
+              <div class="agente-zona">Zona Norte · 6 bodegas predeterminadas</div>
+            </div>
+            <i class="ti ti-chevron-down chev" id="achev2"></i>
+          </div>
+          <div class="agente-body" id="ab2">
+            <div class="bodega-selector-title">Bodegas predeterminadas<button>Seleccionar todas</button></div>
+            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">Derek Primavera (8510)</div></div>
+            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">STIRPE Tunal (241)</div></div>
+            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">Travel LCuesta (8360)</div></div>
+            <button class="add-extra-btn"><i class="ti ti-plus" style="font-size:11px;"></i> Agregar bodega de otra zona</button>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="modal-footer">
-      <button class="btn-s" onclick="closeModal()">Cancelar</button>
+    <div class="modal-foot">
+      <button class="btn-s" onclick="document.getElementById('modal-nuevo').classList.remove('open')">Cancelar</button>
       <button class="btn-p"><i class="ti ti-check"></i> Crear masivo</button>
     </div>
   </div>
 </div>
 
+<!-- ══ MODAL CONFIRMACIÓN OTRA ZONA ══ -->
+<div class="overlay" id="modal-confirm">
+  <div class="confirm-modal">
+    <div class="confirm-icon"><i class="ti ti-alert-triangle" style="color:#FD7E14;font-size:20px;"></i></div>
+    <div class="confirm-title">Bodega de otro técnico</div>
+    <div class="confirm-body" id="confirm-body">Esta bodega pertenece a <strong>Ivan Sanchez</strong>. Si la asignas a Gelvez Esneyder en este masivo, Ivan Sanchez no la verá en esta tarea. ¿Confirmas la asignación?</div>
+    <div class="confirm-btns">
+      <button class="btn-s" onclick="document.getElementById('modal-confirm').classList.remove('open')">Cancelar</button>
+      <button class="btn-warn" onclick="confirmarAsignacion()"><i class="ti ti-check"></i> Confirmar</button>
+    </div>
+  </div>
+</div>
+
 <script>
+let pendingBodegaEl = null;
+
 function switchView(v) {
-  ['masivos','incidentes','todos','llamadas'].forEach(id => {
-    const view = document.getElementById('view-'+id);
-    const nav  = document.getElementById('nav-'+id);
-    const tab  = document.getElementById('tab-'+id);
-    if(view) view.classList.remove('active');
-    if(nav)  nav.classList.remove('active');
-    if(tab)  tab.classList.remove('active');
+  ['masivos','incidentes','llamadas'].forEach(id => {
+    const el = document.getElementById('view-'+id);
+    const nav = document.getElementById('nav-'+id);
+    const tab = document.getElementById('tab-'+id);
+    if(el) el.classList.remove('active');
+    if(nav) nav.classList.remove('active');
+    if(tab) tab.classList.remove('active');
   });
-  const view = document.getElementById('view-'+v);
-  const nav  = document.getElementById('nav-'+v);
-  const tab  = document.getElementById('tab-'+v);
-  if(view) view.classList.add('active');
-  if(nav)  nav.classList.add('active');
-  if(tab)  tab.classList.add('active');
+  const el = document.getElementById('view-'+v);
+  const nav = document.getElementById('nav-'+v);
+  const tab = document.getElementById('tab-'+v);
+  if(el) el.classList.add('active');
+  if(nav) nav.classList.add('active');
+  if(tab) tab.classList.add('active');
 }
 
 function toggleMasivo(i) {
@@ -606,31 +752,103 @@ function toggleMasivo(i) {
   if(!isOpen){d.classList.add('open');c.classList.add('open');h.classList.add('open');}
 }
 
-function toggleInline(i) {
-  const row = document.getElementById('inline-'+i);
-  const isVisible = row.style.display !== 'none';
-  row.style.display = isVisible ? 'none' : 'table-row';
+function toggleTecDetail(id) {
+  const el = document.getElementById(id);
+  const chev = document.getElementById('chev-'+id);
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.tec-detail').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('[id^="chev-td"]').forEach(x=>x.classList.remove('open'));
+  if(!isOpen){el.classList.add('open');if(chev)chev.classList.add('open');}
 }
 
-function openModal() {
-  document.getElementById('modal').classList.add('open');
-}
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
+function toggleInline() {
+  const row = document.getElementById('inline-tec');
+  row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
 }
 
-function toggleAgente(el) {
-  const check = el.querySelector('.agente-check');
-  const isSelected = el.classList.contains('selected');
-  if(isSelected){
-    el.classList.remove('selected');
-    check.classList.remove('checked');
-    check.textContent = '';
-  } else {
-    el.classList.add('selected');
+function toggleAgente(i) {
+  const hdr = document.getElementById('ac'+i).parentElement;
+  const body = document.getElementById('ab'+i);
+  const check = document.getElementById('ac'+i);
+  const chev = document.getElementById('achev'+i);
+  const isSelected = hdr.classList.contains('selected');
+  if(!isSelected) {
+    hdr.classList.add('selected');
     check.classList.add('checked');
     check.textContent = '✓';
+    body.classList.add('open');
+    chev.classList.add('open');
+  } else {
+    body.classList.toggle('open');
+    chev.classList.toggle('open');
   }
+}
+
+function toggleBodega(el, tec, name) {
+  const chk = el.querySelector('.bchk');
+  const isOn = chk.classList.contains('on');
+  if(isOn){ chk.classList.remove('on'); chk.textContent=''; el.classList.remove('selected-b'); }
+  else { chk.classList.add('on'); chk.textContent='✓'; el.classList.add('selected-b'); }
+}
+
+function showExtraBodegas(tec) {
+  const el = document.getElementById('extra-'+tec);
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function confirmOtraZona(el, bodega, owner) {
+  const chk = el.querySelector('.bchk');
+  if(chk.classList.contains('on')) {
+    chk.classList.remove('on'); chk.textContent=''; el.classList.remove('selected-b'); return;
+  }
+  pendingBodegaEl = el;
+  document.getElementById('confirm-body').innerHTML = `Esta bodega <strong>${bodega}</strong> pertenece a <strong>${owner}</strong>. Si la asignas aquí, ${owner} no la verá en esta tarea. ¿Confirmas la asignación?`;
+  document.getElementById('modal-confirm').classList.add('open');
+}
+
+function confirmarAsignacion() {
+  if(pendingBodegaEl) {
+    const chk = pendingBodegaEl.querySelector('.bchk');
+    chk.classList.add('on'); chk.textContent='✓';
+    pendingBodegaEl.classList.add('selected-b');
+    pendingBodegaEl.querySelector('.b-item-owner').style.color='#28A745';
+    pendingBodegaEl = null;
+  }
+  document.getElementById('modal-confirm').classList.remove('open');
+}
+
+function reportarNovedad(btn) {
+  const container = btn.closest('div[style*="display:flex"]').parentElement;
+  const form = container.querySelector('.novedad-form');
+  const isOpen = form.style.display !== 'none';
+  form.style.display = isOpen ? 'none' : 'block';
+  btn.style.background = isOpen ? 'rgba(253,126,20,.08)' : 'rgba(253,126,20,.2)';
+}
+
+function marcarSolucionadaNew(btn) {
+  const bodegaDiv = btn.closest('[style*="padding:8px 12px"]');
+  const nombre = bodegaDiv.querySelector('.bodega-name').textContent;
+  bodegaDiv.innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="bodega-name">${nombre}</div>
+      <span class="bdg b-so" style="font-size:10.5px;"><span class="sdot" style="background:#28A745;display:inline-block;"></span> Solucionada</span>
+    </div>`;
+}
+
+function marcarSolucionada(btn) {
+  btn.classList.remove('open-st');
+  btn.classList.add('done');
+  btn.textContent = '✓';
+  const row = btn.closest('.bodega-row');
+  const span = document.createElement('span');
+  span.className = 'bdg b-so';
+  span.style.fontSize='11px';
+  span.style.marginRight='8px';
+  span.innerHTML='<span class="sdot" style="background:#28A745;display:inline-block;"></span> Solucionada';
+  const input = row.querySelector('.bodega-note-input');
+  if(input) row.removeChild(input);
+  row.insertBefore(span, btn);
+  row.style.background='';
 }
 </script>
 </body>

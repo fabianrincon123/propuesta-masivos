@@ -150,7 +150,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 /* MODALES */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:100;}
 .overlay.open{display:flex;}
-.modal{background:#162030;border:1px solid #1e2d3d;border-radius:12px;width:600px;max-height:85vh;overflow-y:auto;display:flex;flex-direction:column;}
+.modal{background:#162030;border:1px solid #1e2d3d;border-radius:12px;width:660px;max-height:85vh;overflow-y:auto;display:flex;flex-direction:column;}
 .modal.sm{width:420px;}
 .modal-hdr{padding:16px 20px;border-bottom:1px solid #1e2d3d;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
 .modal-title{font-size:15px;font-weight:500;color:#e0e6ec;}
@@ -166,34 +166,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .form-textarea{width:100%;background:#111c26;border:1px solid #1e2d3d;border-radius:6px;padding:7px 10px;color:#c0d0dc;font-size:12.5px;resize:vertical;min-height:70px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 
-/* SELECTOR DE AGENTES */
-.agente-block{background:#111c26;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;margin-bottom:10px;}
-.agente-block:last-child{margin-bottom:0;}
-.agente-hdr{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;border-bottom:1px solid transparent;}
-.agente-hdr.selected{background:rgba(0,212,168,.06);border-bottom-color:#1e2d3d;}
-.agente-check{width:18px;height:18px;border-radius:5px;border:1.5px solid #1e2d3d;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;transition:all .15s;}
-.agente-check.checked{background:#00d4a8;border-color:#00d4a8;color:#0a1a12;}
-.agente-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;color:#0a1a12;}
-.agente-info{flex:1;}
-.agente-name{font-size:12.5px;color:#c0d0dc;font-weight:500;}
-.agente-zona{font-size:10.5px;color:#00d4a8;margin-top:1px;}
-.agente-body{display:none;padding:10px 12px 12px;}
-.agente-body.open{display:block;}
-.bodega-selector-title{font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
-.bodega-selector-title button{font-size:10.5px;color:#00d4a8;background:none;border:none;cursor:pointer;padding:0;}
-.bodega-item{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:5px;cursor:pointer;margin-bottom:2px;}
-.bodega-item:hover{background:#162030;}
-.bodega-item.selected-b{background:rgba(0,212,168,.06);}
-.bodega-item.other-tec{opacity:.6;}
-.bodega-item.already-assigned{opacity:.4;cursor:not-allowed;}
-.bchk{width:15px;height:15px;border-radius:3px;border:1.5px solid #1e2d3d;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;}
-.bchk.on{background:#00d4a8;border-color:#00d4a8;color:#0a1a12;}
-.bchk.blocked{background:#1e2d3d;border-color:#1e2d3d;color:#4a6070;}
-.b-item-name{flex:1;font-size:12px;color:#c0d0dc;}
-.b-item-owner{font-size:10.5px;color:#FD7E14;}
-.b-item-taken{font-size:10.5px;color:#4a6070;display:flex;align-items:center;gap:3px;}
-.add-extra-btn{width:100%;padding:6px;background:#111c26;border:1px dashed #1e2d3d;border-radius:5px;color:#6b7f8e;font-size:11.5px;cursor:pointer;margin-top:6px;text-align:center;}
-.add-extra-btn:hover{border-color:#00d4a8;color:#00d4a8;}
+/* DRAG & DROP BODEGAS → TÉCNICOS */
+.bchk{width:15px;height:15px;border-radius:3px;border:1.5px solid #1e2d3d;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;color:#0a1a12;}
+.bchk.on{background:#00d4a8;border-color:#00d4a8;}
+.bod-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid #1a2836;cursor:grab;}
+.bod-row:hover{background:#162030;}
+.bod-row:active{cursor:grabbing;}
+.tec-drop{border-bottom:1px solid #1a2836;padding:8px 10px;transition:background .12s;}
+.tec-drop.dragover{background:rgba(0,212,168,.1);}
+.tec-chip{position:relative;display:inline-flex;align-items:center;background:#162030;border:1px solid #1e2d3d;border-radius:5px;padding:3px 8px;font-size:10.5px;color:#c0d0dc;margin:5px 7px 0 0;}
+.chip-x{position:absolute;top:-6px;right:-6px;width:15px;height:15px;border-radius:50%;background:#e05252;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1;font-weight:700;cursor:pointer;border:1.5px solid #111c26;}
+.chip-x:hover{background:#c23f3f;}
+
 /* PLAN CARD */
 .plan-card{background:#162030;border:1px solid rgba(0,212,168,.2);border-radius:8px;overflow:hidden;margin-bottom:8px;}
 .plan-hdr{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;}
@@ -253,7 +237,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
           </div>
             <div style="display:flex;gap:8px;">
             <button class="btn-s" onclick="document.getElementById('modal-plan').classList.add('open')"><i class="ti ti-calendar-plus"></i> Nueva planeación</button>
-            <button class="btn-p" onclick="document.getElementById('modal-nuevo').classList.add('open');initAsignador()"><i class="ti ti-plus"></i> Nuevo masivo</button>
+            <button class="btn-p" onclick="document.getElementById('modal-nuevo').classList.add('open');initAsignador();initClasificacion()"><i class="ti ti-plus"></i> Nuevo masivo</button>
           </div>
         </div>
 
@@ -624,6 +608,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
         <input class="form-input" type="text" placeholder="Ej: Actualización de software en equipos de tiendas">
       </div>
       <div class="form-group">
+        <div class="form-row" style="grid-template-columns:1fr 1fr 1fr;">
+          <div>
+            <label class="form-label">Clasificación <span>*</span></label>
+            <select class="form-input" id="sel-clasificacion"></select>
+          </div>
+          <div>
+            <label class="form-label">Categoría <span>*</span></label>
+            <select class="form-input" id="sel-categoria" onchange="renderSubcategorias()"></select>
+          </div>
+          <div>
+            <label class="form-label">Subcategoría <span>*</span></label>
+            <select class="form-input" id="sel-subcategoria"></select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
         <label class="form-label">Descripción <span>*</span></label>
         <textarea class="form-textarea" placeholder="Describe en detalle la actividad que deben realizar los técnicos..."></textarea>
       </div>
@@ -640,50 +640,42 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 
       <div class="form-group">
         <label class="form-label" style="margin-bottom:8px;">Asignar técnicos y bodegas <span>*</span></label>
-        <div style="font-size:11px;color:#6b7f8e;margin-bottom:10px;">Selecciona un técnico a la izquierda para ver y gestionar sus bodegas. Las bloqueadas ya están asignadas a otro técnico en este masivo.</div>
-        <div style="display:grid;grid-template-columns:220px 1fr;gap:10px;height:320px;">
-          <!-- Panel izq: técnicos -->
-          <div style="background:#111c26;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;">
-            <div style="padding:7px 10px;border-bottom:1px solid #1e2d3d;background:#0d1520;display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:10px;color:#8a9db0;font-weight:600;text-transform:uppercase;">Técnicos</span>
-              <span style="font-size:10px;color:#00d4a8;" id="tec-sel-count">0 seleccionados</span>
-            </div>
-            <div style="overflow-y:auto;flex:1;" id="tec-panel"></div>
-          </div>
-          <!-- Panel der: bodegas -->
-          <div style="background:#111c26;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;">
-            <div style="padding:7px 10px;border-bottom:1px solid #1e2d3d;background:#0d1520;display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:10px;color:#8a9db0;font-weight:600;text-transform:uppercase;" id="bod-panel-title">Selecciona un técnico →</span>
-              <button onclick="selAllBodegas()" style="font-size:10px;color:#00d4a8;background:none;border:none;cursor:pointer;">Seleccionar todas</button>
-            </div>
-            <input id="bod-search" type="text" placeholder="Buscar bodega..." oninput="renderBodegas()" style="background:#0f1923;border:none;border-bottom:1px solid #1e2d3d;padding:6px 10px;color:#c0d0dc;font-size:11.5px;outline:none;">
-            <div style="overflow-y:auto;flex:1;" id="bod-panel"><div style="padding:20px;text-align:center;color:#4a6070;font-size:11.5px;">← Selecciona un técnico</div></div>
-            <div style="padding:6px 10px;border-top:1px solid #1e2d3d;font-size:11px;color:#6b7f8e;" id="bod-summary">—</div>
-          </div>
-        </div>
-        <div style="display:none;"><!-- legacy --></div>
-            <div id="extra-ge" style="display:none;margin-top:8px;">
-              <div style="font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Otras bodegas disponibles</div>
-              <div class="bodega-item already-assigned" title="Ya asignada a Ivan Sanchez en este masivo">
-                <div class="bchk blocked"><i class="ti ti-lock" style="font-size:9px;"></i></div>
-                <div class="b-item-name">Derek Arboleda (810)</div>
-                <div class="b-item-taken"><span class="sdot" style="background:#FD7E14;"></span> Asignada a Ivan Sanchez</div>
-              </div>
-              <div class="bodega-item" onclick="confirmOtraZona(this,'STIRPE Plaza Américas','Ivan Sanchez')">
-                <div class="bchk"></div>
-                <div class="b-item-name">STIRPE Plaza Américas (781)</div>
-                <div class="b-item-owner">Pertenece a Ivan Sanchez</div>
-              </div>
-              <div class="bodega-item" onclick="confirmOtraZona(this,'Derek Cañaveral','Carlos Pérez')">
-                <div class="bchk"></div>
-                <div class="b-item-name">Derek Cañaveral (200)</div>
-                <div class="b-item-owner">Pertenece a Carlos Pérez</div>
-              </div>
-            </div>
-          </div>
+        <div style="font-size:11px;color:#6b7f8e;margin-bottom:10px;">Selecciona una o varias bodegas de la izquierda y arrástralas sobre un técnico para asignárselas. Si una bodega ya está asignada a otro técnico en este masivo, se pedirá confirmación.</div>
+
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+          <input id="bod-search" type="text" placeholder="Buscar bodega..." oninput="renderBodegasList()" class="form-input" style="width:150px;padding:5px 9px;font-size:11.5px;">
+          <select id="bod-tipo-filter" class="f-sel" onchange="renderBodegasList()" style="font-size:11.5px;">
+            <option value="">Todos los tipos</option>
+            <option value="CEDI">CEDI</option>
+            <option value="Administrativo">Administrativo</option>
+            <option value="Tiendas">Tiendas</option>
+          </select>
+          <button class="btn-s" style="font-size:11px;padding:4px 10px;" onclick="selAllFiltered()"><i class="ti ti-checks"></i> Seleccionar visibles</button>
+          <label style="margin-left:auto;display:flex;align-items:center;gap:6px;font-size:11px;color:#8a9db0;cursor:pointer;">
+            <input type="checkbox" id="chk-show-original" onchange="toggleShowOriginal()" style="accent-color:#00d4a8;">
+            Ver responsable original
+          </label>
         </div>
 
+        <div style="display:grid;grid-template-columns:1fr 230px;gap:10px;height:320px;">
+          <!-- Panel bodegas (origen del drag) -->
+          <div style="background:#111c26;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;">
+            <div style="padding:7px 10px;border-bottom:1px solid #1e2d3d;background:#0d1520;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:10px;color:#8a9db0;font-weight:600;text-transform:uppercase;">Bodegas</span>
+              <span style="font-size:10px;color:#00d4a8;" id="bod-sel-count">0 seleccionadas</span>
+            </div>
+            <div style="overflow-y:auto;flex:1;" id="bod-list-panel"></div>
+          </div>
+          <!-- Panel técnicos (destino del drop) -->
+          <div style="background:#111c26;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;">
+            <div style="padding:7px 10px;border-bottom:1px solid #1e2d3d;background:#0d1520;">
+              <span style="font-size:10px;color:#8a9db0;font-weight:600;text-transform:uppercase;">Técnicos</span>
+            </div>
+            <div style="overflow-y:auto;flex:1;" id="tec-drop-panel"></div>
+          </div>
+        </div>
       </div>
+
     </div>
     <div class="modal-foot">
       <button class="btn-s" onclick="document.getElementById('modal-nuevo').classList.remove('open')">Cancelar</button>
@@ -724,7 +716,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
     <div class="confirm-title">Bodega de otro técnico</div>
     <div class="confirm-body" id="confirm-body"></div>
     <div class="confirm-btns">
-      <button class="btn-s" onclick="document.getElementById('modal-confirm').classList.remove('open')">Cancelar</button>
+      <button class="btn-s" onclick="cancelarConfirmacion()">Cancelar</button>
       <button class="btn-warn" onclick="confirmarAsignacion()"><i class="ti ti-check"></i> Confirmar</button>
     </div>
   </div>
@@ -749,127 +741,256 @@ const TECNICOS = {
 };
 const TEC_COLORS = {"AUXSISTEM2":"#00d4a8","AUXSISTE18":"#00a884","AUXSISTEM5":"#007a60","AUXSISTEM1":"#005244","AUXSISTE12":"#5b9bf8","AUXSISTEM4":"#a09be8","AUXSISTE13":"#FFC107","AUXSISTE23":"#FD7E14","AUXSISTE17":"#e05252","AUXSISTE15":"#28A745","AUXSISTE19":"#00d4a8","AUXSISTE14":"#00a884","AUXSISTE21":"#007a60"};
 
-let selectedTec = null;
-let assignedBodegas = {}; // {tec: Set}
-let pendingConf = null;
+// Clasificación de bodegas por tipo. CEDI = lista fija dada por negocio.
+// Administrativo/Tiendas es una regla de ejemplo (código >= 900 = Administrativo) — ajustar cuando exista el dato real.
+const CEDI_CODES = new Set(["100","103","600","601","602","717","321","421","86","308","40"]);
+function tipoBodega(code) {
+  if (CEDI_CODES.has(code)) return 'CEDI';
+  if (parseInt(code, 10) >= 900) return 'Administrativo';
+  return 'Tiendas';
+}
+const TIPO_COLOR = { CEDI: '#e05252', Administrativo: '#FFC107', Tiendas: '#5b9bf8' };
+
+// Responsable original por bodega, según UsrResponsable del CSV.
+const BODEGA_OWNER = {};
+Object.entries(TECNICOS).forEach(([tec, bods]) => bods.forEach(b => { if (!BODEGA_OWNER[b]) BODEGA_OWNER[b] = tec; }));
+const ALL_BODEGAS = [...new Set(Object.values(TECNICOS).flat())].sort((a, b) => (+a) - (+b));
+
+// ── CATÁLOGO CLASIFICACIÓN / CATEGORÍA / SUBCATEGORÍA ─────────
+const CLASIFICACIONES = ["ACCESOS Y PERMISOS","CAPACITACIÓN / ACOMPAÑAMIENTO","GESTIÓN OPERATIVA TI","HARDWARE / DISPOSITIVOS","PROCESOS MANUALES COMERCIALES","RED / INFRAESTRUCTURA","SOFTWARE / APPS","SOPORTE SAC"];
+const CATEGORIAS = CLASIFICACIONES; // mismo listado indicado por negocio
+const CLASIFICACION_DEFAULT = "GESTIÓN OPERATIVA TI";
+const SUBCATEGORIAS = {
+  "ACCESOS Y PERMISOS": ["Creación de usuario","Restablecimiento de contraseña","Permisos de módulo","Bloqueo / desbloqueo de cuenta"],
+  "CAPACITACIÓN / ACOMPAÑAMIENTO": ["Capacitación de uso del sistema","Acompañamiento en implementación","Refuerzo de proceso","Inducción nuevo colaborador"],
+  "GESTIÓN OPERATIVA TI": ["Actualización de software","Configuración de equipos","Mantenimiento preventivo","Instalación de aplicativo","Cambio de parámetros / configuración masiva"],
+  "HARDWARE / DISPOSITIVOS": ["Falla de equipo de cómputo","Falla de impresora","Falla de lector de código de barras","Falla de datáfono","Cambio de periférico (teclado, mouse, etc.)"],
+  "PROCESOS MANUALES COMERCIALES": ["Ajuste de inventario manual","Registro manual de venta","Conciliación de caja","Novedad en traslado de mercancía"],
+  "RED / INFRAESTRUCTURA": ["Falla de conectividad","Configuración de red local","Caída de internet / enlace","Configuración de VPN"],
+  "SOFTWARE / APPS": ["Error en aplicativo","Actualización de versión","Configuración de parámetros","Falla de sincronización"],
+  "SOPORTE SAC": ["Consulta de cliente","Reclamo o PQR","Soporte telefónico","Escalamiento a otra área"]
+};
+
+function initClasificacion() {
+  const selC = document.getElementById('sel-clasificacion');
+  const selCat = document.getElementById('sel-categoria');
+  selC.innerHTML = CLASIFICACIONES.map(c => `<option ${c === CLASIFICACION_DEFAULT ? 'selected' : ''}>${c}</option>`).join('');
+  selCat.innerHTML = CATEGORIAS.map(c => `<option ${c === CLASIFICACION_DEFAULT ? 'selected' : ''}>${c}</option>`).join('');
+  renderSubcategorias();
+}
+
+function renderSubcategorias() {
+  const cat = document.getElementById('sel-categoria').value;
+  const subs = SUBCATEGORIAS[cat] || [];
+  document.getElementById('sel-subcategoria').innerHTML = subs.map(s => `<option>${s}</option>`).join('');
+}
+
+// ── ESTADO DEL ASIGNADOR (modal Nuevo masivo) ─────────────────
+let assignedBodegas = {};   // tec -> Set(codigos) asignados EN ESTE MASIVO
+let bodegaAssignedTo = {};  // codigo -> tec (reverso, solo dentro de este masivo)
+let selectedBodegas = new Set(); // checkboxes marcados para arrastrar varias a la vez
+let showOriginal = false;
+let draggingCodes = [];
+let pendingConf = null; // {codes, tec}
+let expandedTec = null; // técnico con el detalle de "sus" bodegas abierto
 
 function initAsignador() {
   assignedBodegas = {};
-  selectedTec = null;
-  renderTecPanel();
-  document.getElementById('bod-panel').innerHTML = '<div style="padding:20px;text-align:center;color:#4a6070;font-size:11.5px;">← Selecciona un técnico</div>';
-  document.getElementById('bod-summary').textContent = '—';
-  document.getElementById('bod-panel-title').textContent = 'Selecciona un técnico →';
-  document.getElementById('tec-sel-count').textContent = '0 seleccionados';
+  bodegaAssignedTo = {};
+  selectedBodegas = new Set();
+  showOriginal = false;
+  draggingCodes = [];
+  pendingConf = null;
+  expandedTec = null;
+  const chk = document.getElementById('chk-show-original'); if (chk) chk.checked = false;
+  const search = document.getElementById('bod-search'); if (search) search.value = '';
+  const tf = document.getElementById('bod-tipo-filter'); if (tf) tf.value = '';
+  renderBodegasList();
+  renderTecnicosPanel();
 }
 
-function renderTecPanel() {
-  const el = document.getElementById('tec-panel');
-  if(!el) return;
-  el.innerHTML = '';
-  const selCount = Object.keys(assignedBodegas).length;
-  document.getElementById('tec-sel-count').textContent = selCount + ' seleccionados';
-  Object.keys(TECNICOS).forEach(tec => {
-    const hasAsgn = !!assignedBodegas[tec];
-    const cnt = hasAsgn ? assignedBodegas[tec].size : 0;
-    const total = TECNICOS[tec].length;
-    const isActive = selectedTec === tec;
-    const div = document.createElement('div');
-    div.style.cssText = `display:flex;align-items:center;gap:7px;padding:7px 10px;cursor:pointer;border-bottom:1px solid #1a2836;${hasAsgn?'background:rgba(0,212,168,.05)':''}${isActive?';outline:1px solid #00d4a8;outline-offset:-1px':''}`;
-    div.onclick = () => { selectedTec = tec; renderTecPanel(); renderBodPanel(); };
-    const c = TEC_COLORS[tec]||'#00d4a8';
-    div.innerHTML = `
-      <div style="width:14px;height:14px;border-radius:3px;border:1.5px solid ${hasAsgn?'#00d4a8':'#1e2d3d'};background:${hasAsgn?'#00d4a8':'transparent'};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#0a1a12;">${hasAsgn?'✓':''}</div>
-      <div style="width:22px;height:22px;border-radius:50%;background:${c};color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;flex-shrink:0;">${tec.slice(-2)}</div>
-      <div style="flex:1;font-size:11.5px;color:${isActive?'#00d4a8':'#c0d0dc'};">${tec}</div>
-      <div style="font-size:10px;color:#6b7f8e;">${hasAsgn?cnt+'/'+total:total}</div>
-    `;
-    el.appendChild(div);
+function toggleShowOriginal() {
+  showOriginal = document.getElementById('chk-show-original').checked;
+  renderBodegasList();
+}
+
+function toggleSelectBodega(code, ev) {
+  if (ev) ev.stopPropagation();
+  if (selectedBodegas.has(code)) selectedBodegas.delete(code);
+  else selectedBodegas.add(code);
+  renderBodegasList();
+}
+
+function selAllFiltered() {
+  getFilteredBodegas().forEach(b => selectedBodegas.add(b));
+  renderBodegasList();
+}
+
+function getFilteredBodegas() {
+  const q = ((document.getElementById('bod-search') || {}).value || '').trim();
+  const tipoF = (document.getElementById('bod-tipo-filter') || {}).value || '';
+  return ALL_BODEGAS.filter(b => {
+    if (q && !b.includes(q)) return false;
+    if (tipoF && tipoBodega(b) !== tipoF) return false;
+    return true;
   });
 }
 
-function renderBodPanel() {
-  if(!selectedTec) return;
-  document.getElementById('bod-panel-title').textContent = selectedTec;
-  const filter = (document.getElementById('bod-search')||{}).value||'';
-  const el = document.getElementById('bod-panel');
-  el.innerHTML = '';
-  const myBods = TECNICOS[selectedTec];
-  const assigned = assignedBodegas[selectedTec] || new Set();
-
-  // Propias
-  const g1 = document.createElement('div');
-  g1.innerHTML = `<div style="padding:5px 10px;background:#0d1520;font-size:10px;color:#6b7f8e;font-weight:600;text-transform:uppercase;">Propias (${myBods.length})</div>`;
-  myBods.filter(b => !filter || b.includes(filter)).forEach(b => {
-    const sel = assigned.has(b);
-    const row = document.createElement('div');
-    row.style.cssText = `display:flex;align-items:center;gap:7px;padding:5px 10px 5px 16px;cursor:pointer;border-bottom:1px solid #1a2836;${sel?'background:rgba(0,212,168,.04)':''}`;
-    row.onclick = () => { toggleBod(b, selectedTec, null); };
-    row.innerHTML = `<div style="width:13px;height:13px;border-radius:3px;border:1.5px solid ${sel?'#00d4a8':'#1e2d3d'};background:${sel?'#00d4a8':'transparent'};display:flex;align-items:center;justify-content:center;font-size:8px;color:#0a1a12;flex-shrink:0;">${sel?'✓':''}</div><div style="flex:1;font-size:11.5px;color:#c0d0dc;">Bodega ${b}</div><div style="font-size:10px;color:#00d4a8;">Suya</div>`;
-    g1.appendChild(row);
-  });
-  el.appendChild(g1);
-
-  // Otras
-  const g2 = document.createElement('div');
-  g2.innerHTML = `<div style="padding:5px 10px;background:#0d1520;font-size:10px;color:#6b7f8e;font-weight:600;text-transform:uppercase;margin-top:4px;">Otras bodegas (otros técnicos)</div>`;
-  Object.entries(TECNICOS).forEach(([otherTec, bods]) => {
-    if(otherTec === selectedTec) return;
-    bods.filter(b => !filter || b.includes(filter)).forEach(b => {
-      const takenByOther = Object.entries(assignedBodegas).some(([t,s]) => t !== selectedTec && s.has(b));
-      const sel = assigned.has(b);
-      const row = document.createElement('div');
-      row.style.cssText = `display:flex;align-items:center;gap:7px;padding:5px 10px 5px 16px;border-bottom:1px solid #1a2836;${takenByOther&&!sel?'opacity:.45;':'cursor:pointer;'}${sel?'background:rgba(0,212,168,.04)':''}`;
-      if(takenByOther && !sel) {
-        row.innerHTML = `<div style="width:13px;height:13px;border-radius:3px;background:#1e2d3d;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="ti ti-lock" style="font-size:8px;color:#4a6070;"></i></div><div style="flex:1;font-size:11.5px;color:#c0d0dc;">Bodega ${b}</div><div style="font-size:10px;color:#4a6070;display:flex;align-items:center;gap:2px;"><span style="width:4px;height:4px;border-radius:50%;background:#FD7E14;display:inline-block;"></span>${otherTec}</div>`;
-      } else {
-        row.onclick = () => toggleBod(b, selectedTec, otherTec);
-        row.innerHTML = `<div style="width:13px;height:13px;border-radius:3px;border:1.5px solid ${sel?'#00d4a8':'#1e2d3d'};background:${sel?'#00d4a8':'transparent'};display:flex;align-items:center;justify-content:center;font-size:8px;color:#0a1a12;flex-shrink:0;">${sel?'✓':''}</div><div style="flex:1;font-size:11.5px;color:#c0d0dc;">Bodega ${b}</div><div style="font-size:10px;color:#FD7E14;">→ ${otherTec}</div>`;
-      }
-      g2.appendChild(row);
-    });
-  });
-  el.appendChild(g2);
-
-  const cnt = assigned.size;
-  document.getElementById('bod-summary').innerHTML = `<span style="color:#00d4a8;font-weight:600;">${cnt}</span> bodegas asignadas a ${selectedTec}`;
-}
-
-function toggleBod(b, tec, fromOther) {
-  if(!assignedBodegas[tec]) assignedBodegas[tec] = new Set();
-  if(assignedBodegas[tec].has(b)) {
-    assignedBodegas[tec].delete(b);
-    if(!assignedBodegas[tec].size) delete assignedBodegas[tec];
-    renderTecPanel(); renderBodPanel(); return;
-  }
-  if(fromOther) {
-    pendingConf = {b, tec, fromOther};
-    document.getElementById('confirm-body').innerHTML = `La bodega <strong>${b}</strong> pertenece a <strong>${fromOther}</strong>. Si la asignas a <strong>${tec}</strong>, este técnico la gestionará en este masivo. ¿Confirmas?`;
-    document.getElementById('modal-confirm').classList.add('open');
+function renderBodegasList() {
+  const el = document.getElementById('bod-list-panel');
+  if (!el) return;
+  const list = getFilteredBodegas();
+  document.getElementById('bod-sel-count').textContent = selectedBodegas.size + ' seleccionadas';
+  if (!list.length) {
+    el.innerHTML = '<div style="padding:20px;text-align:center;color:#4a6070;font-size:11.5px;">Sin bodegas para este filtro</div>';
     return;
   }
-  assignedBodegas[tec].add(b);
-  renderTecPanel(); renderBodPanel();
+  el.innerHTML = list.map(code => {
+    const tipo = tipoBodega(code);
+    const asignadaA = bodegaAssignedTo[code];
+    const owner = BODEGA_OWNER[code];
+    const sel = selectedBodegas.has(code);
+    return `
+      <div class="bod-row" draggable="true" data-code="${code}" style="${sel ? 'background:rgba(0,212,168,.08);' : ''}">
+        <div class="bchk ${sel ? 'on' : ''}" onclick="toggleSelectBodega('${code}',event)" style="cursor:pointer;">${sel ? '✓' : ''}</div>
+        <div style="flex:1;font-size:11.5px;color:#c0d0dc;">Bodega ${code}</div>
+        <span style="font-size:9.5px;color:${TIPO_COLOR[tipo]};border:1px solid ${TIPO_COLOR[tipo]}55;border-radius:8px;padding:1px 6px;flex-shrink:0;">${tipo}</span>
+        ${showOriginal ? `<span style="font-size:9.5px;color:#6b7f8e;flex-shrink:0;" title="Responsable original (CSV)">${owner || '—'}</span>` : ''}
+        ${asignadaA
+          ? `<span style="font-size:9.5px;color:#0a1a12;background:${TEC_COLORS[asignadaA] || '#00d4a8'};border-radius:8px;padding:1px 6px;font-weight:700;flex-shrink:0;">${asignadaA}</span>`
+          : `<i class="ti ti-grip-vertical" style="color:#4a6070;font-size:12px;flex-shrink:0;"></i>`}
+      </div>`;
+  }).join('');
+
+  el.querySelectorAll('.bod-row').forEach(row => {
+    row.addEventListener('dragstart', (e) => {
+      const code = row.dataset.code;
+      draggingCodes = (selectedBodegas.has(code) && selectedBodegas.size > 1) ? Array.from(selectedBodegas) : [code];
+      e.dataTransfer.setData('text/plain', draggingCodes.join(','));
+    });
+  });
 }
 
-function selAllBodegas() {
-  if(!selectedTec) return;
-  if(!assignedBodegas[selectedTec]) assignedBodegas[selectedTec] = new Set();
-  TECNICOS[selectedTec].forEach(b => assignedBodegas[selectedTec].add(b));
-  renderTecPanel(); renderBodPanel();
+function renderTecnicosPanel() {
+  const el = document.getElementById('tec-drop-panel');
+  if (!el) return;
+  el.innerHTML = Object.keys(TECNICOS).map(tec => {
+    const assigned = assignedBodegas[tec] || new Set();
+    const c = TEC_COLORS[tec] || '#00d4a8';
+    const chips = Array.from(assigned).map(code => `
+      <span class="tec-chip">${code}<span class="chip-x" onclick="removeAsignacion('${tec}','${code}');event.stopPropagation()">×</span></span>`).join('');
+    const isOpen = expandedTec === tec;
+    return `
+      <div class="tec-drop" data-tec="${tec}">
+        <div style="display:flex;align-items:center;gap:8px;cursor:pointer;" onclick="toggleExpandTec('${tec}')">
+          <div style="width:22px;height:22px;border-radius:50%;background:${c};color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0;">${tec.slice(-2)}</div>
+          <div style="flex:1;font-size:11.5px;color:#c0d0dc;">${tec}</div>
+          <div style="font-size:10px;color:#6b7f8e;">${assigned.size}/${TECNICOS[tec].length}</div>
+          <i class="ti ti-chevron-down" style="color:#4a6070;font-size:12px;flex-shrink:0;transition:transform .15s;${isOpen ? 'transform:rotate(180deg);' : ''}"></i>
+        </div>
+        ${assigned.size ? `<div style="margin-top:5px;">${chips}</div>` : ''}
+        ${isOpen ? renderTecExpand(tec) : ''}
+      </div>`;
+  }).join('');
+
+  el.querySelectorAll('.tec-drop').forEach(wrap => {
+    const tec = wrap.dataset.tec;
+    wrap.addEventListener('dragover', (e) => { e.preventDefault(); wrap.classList.add('dragover'); });
+    wrap.addEventListener('dragleave', () => wrap.classList.remove('dragover'));
+    wrap.addEventListener('drop', (e) => { e.preventDefault(); wrap.classList.remove('dragover'); handleDrop(tec); });
+  });
+}
+
+function renderTecExpand(tec) {
+  const propias = TECNICOS[tec];
+  const rows = propias.map(code => {
+    const owner = bodegaAssignedTo[code];
+    let estado;
+    if (owner === tec) estado = `<span style="color:#28A745;display:flex;align-items:center;gap:5px;">Ya asignada aquí<i class="ti ti-x" style="cursor:pointer;color:#6b7f8e;" onclick="removeAsignacion('${tec}','${code}')"></i></span>`;
+    else if (owner) estado = `<span style="color:#FD7E14;">Hoy en ${owner}</span>`;
+    else estado = `<span style="color:#6b7f8e;">Libre</span>`;
+    return `<div style="display:flex;align-items:center;gap:6px;padding:2px 0;font-size:10.5px;">
+      <span style="flex:1;color:#c0d0dc;">Bodega ${code}</span>${estado}
+    </div>`;
+  }).join('');
+  return `
+    <div style="margin-top:8px;padding-top:8px;border-top:1px dashed #1e2d3d;" onclick="event.stopPropagation()">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <span style="font-size:10px;color:#4a6070;text-transform:uppercase;">Responsable original (${propias.length})</span>
+        <button onclick="agregarPropiasTec('${tec}')" style="font-size:10px;color:#00d4a8;background:none;border:none;cursor:pointer;font-weight:600;">+ Agregar todas</button>
+      </div>
+      ${rows}
+    </div>`;
+}
+
+function toggleExpandTec(tec) {
+  expandedTec = (expandedTec === tec) ? null : tec;
+  renderTecnicosPanel();
+}
+
+function agregarPropiasTec(tec) {
+  handleAssignRequest(TECNICOS[tec], tec);
+}
+
+function handleDrop(tec) {
+  const codes = draggingCodes;
+  draggingCodes = [];
+  handleAssignRequest(codes, tec);
+}
+
+function handleAssignRequest(codes, tec) {
+  if (!codes.length) return;
+  const conflictos = codes.filter(c => bodegaAssignedTo[c] && bodegaAssignedTo[c] !== tec);
+  const directos = codes.filter(c => !conflictos.includes(c) && bodegaAssignedTo[c] !== tec);
+  if (directos.length) asignarCodigos(directos, tec);
+  if (conflictos.length) {
+    pendingConf = { codes: conflictos, tec };
+    const detalle = conflictos.map(c => `Bodega ${c} (hoy en ${bodegaAssignedTo[c]})`).join(', ');
+    document.getElementById('confirm-body').innerHTML = `Vas a mover ${conflictos.length > 1 ? 'estas bodegas' : 'esta bodega'}: <strong>${detalle}</strong> hacia <strong>${tec}</strong>. ¿Confirmas la reasignación?`;
+    document.getElementById('modal-confirm').classList.add('open');
+  }
+}
+
+function asignarCodigos(codes, tec) {
+  codes.forEach(code => {
+    const prev = bodegaAssignedTo[code];
+    if (prev && assignedBodegas[prev]) {
+      assignedBodegas[prev].delete(code);
+      if (!assignedBodegas[prev].size) delete assignedBodegas[prev];
+    }
+    if (!assignedBodegas[tec]) assignedBodegas[tec] = new Set();
+    assignedBodegas[tec].add(code);
+    bodegaAssignedTo[code] = tec;
+    selectedBodegas.delete(code);
+  });
+  renderBodegasList();
+  renderTecnicosPanel();
+}
+
+function removeAsignacion(tec, code) {
+  if (assignedBodegas[tec]) {
+    assignedBodegas[tec].delete(code);
+    if (!assignedBodegas[tec].size) delete assignedBodegas[tec];
+  }
+  delete bodegaAssignedTo[code];
+  renderBodegasList();
+  renderTecnicosPanel();
 }
 
 function confirmarAsignacion() {
-  if(pendingConf) {
-    const {b, tec} = pendingConf;
-    if(!assignedBodegas[tec]) assignedBodegas[tec] = new Set();
-    assignedBodegas[tec].add(b);
+  if (pendingConf) {
+    asignarCodigos(pendingConf.codes, pendingConf.tec);
     pendingConf = null;
-    renderTecPanel(); renderBodPanel();
   }
   document.getElementById('modal-confirm').classList.remove('open');
 }
 
+function cancelarConfirmacion() {
+  pendingConf = null;
+  document.getElementById('modal-confirm').classList.remove('open');
+}
+
+// ── NAVEGACIÓN / UI EXISTENTE ─────────────────────────────────
 function togPlan(i) {
   const d=document.getElementById('pld'+i),c=document.getElementById('plc'+i),h=document.getElementById('plh'+i);
   const o=d.classList.contains('open');
@@ -916,57 +1037,6 @@ function toggleTecDetail(id) {
 function toggleInline() {
   const row = document.getElementById('inline-tec');
   row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
-}
-
-function toggleAgente(i) {
-  const hdr = document.getElementById('ac'+i).parentElement;
-  const body = document.getElementById('ab'+i);
-  const check = document.getElementById('ac'+i);
-  const chev = document.getElementById('achev'+i);
-  const isSelected = hdr.classList.contains('selected');
-  if(!isSelected) {
-    hdr.classList.add('selected');
-    check.classList.add('checked');
-    check.textContent = '✓';
-    body.classList.add('open');
-    chev.classList.add('open');
-  } else {
-    body.classList.toggle('open');
-    chev.classList.toggle('open');
-  }
-}
-
-function toggleBodega(el, tec, name) {
-  const chk = el.querySelector('.bchk');
-  const isOn = chk.classList.contains('on');
-  if(isOn){ chk.classList.remove('on'); chk.textContent=''; el.classList.remove('selected-b'); }
-  else { chk.classList.add('on'); chk.textContent='✓'; el.classList.add('selected-b'); }
-}
-
-function showExtraBodegas(tec) {
-  const el = document.getElementById('extra-'+tec);
-  el.style.display = el.style.display === 'none' ? 'block' : 'none';
-}
-
-function confirmOtraZona(el, bodega, owner) {
-  const chk = el.querySelector('.bchk');
-  if(chk.classList.contains('on')) {
-    chk.classList.remove('on'); chk.textContent=''; el.classList.remove('selected-b'); return;
-  }
-  pendingBodegaEl = el;
-  document.getElementById('confirm-body').innerHTML = `Esta bodega <strong>${bodega}</strong> pertenece a <strong>${owner}</strong>. Si la asignas aquí, ${owner} no la verá en esta tarea. ¿Confirmas la asignación?`;
-  document.getElementById('modal-confirm').classList.add('open');
-}
-
-function confirmarAsignacion() {
-  if(pendingBodegaEl) {
-    const chk = pendingBodegaEl.querySelector('.bchk');
-    chk.classList.add('on'); chk.textContent='✓';
-    pendingBodegaEl.classList.add('selected-b');
-    pendingBodegaEl.querySelector('.b-item-owner').style.color='#28A745';
-    pendingBodegaEl = null;
-  }
-  document.getElementById('modal-confirm').classList.remove('open');
 }
 
 function reportarNovedad(btn) {

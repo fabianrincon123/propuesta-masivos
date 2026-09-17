@@ -194,6 +194,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .b-item-taken{font-size:10.5px;color:#4a6070;display:flex;align-items:center;gap:3px;}
 .add-extra-btn{width:100%;padding:6px;background:#111c26;border:1px dashed #1e2d3d;border-radius:5px;color:#6b7f8e;font-size:11.5px;cursor:pointer;margin-top:6px;text-align:center;}
 .add-extra-btn:hover{border-color:#00d4a8;color:#00d4a8;}
+/* PLAN CARD */
+.plan-card{background:#162030;border:1px solid rgba(0,212,168,.2);border-radius:8px;overflow:hidden;margin-bottom:8px;}
+.plan-hdr{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;}
+.plan-hdr:hover{background:#1a2836;}
+.plan-hdr.open{border-bottom:1px solid #1e2d3d;}
+.plan-det{display:none;background:#111c26;padding:12px 14px;}
+.plan-det.open{display:block;}
+.plan-m-row{display:flex;align-items:center;gap:8px;padding:6px 10px;background:#162030;border:1px solid #1e2d3d;border-radius:6px;margin-bottom:5px;}
+.plan-m-row:last-child{margin-bottom:0;}
+.plan-bdg{background:rgba(0,212,168,.1);color:#00d4a8;border:1px solid rgba(0,212,168,.25);border-radius:12px;font-size:10px;font-weight:600;padding:2px 7px;flex-shrink:0;}
+.e-plan{background:rgba(0,212,168,.1);color:#00d4a8;}
 
 /* MODAL CONFIRMACIÓN */
 .confirm-modal{background:#162030;border:1px solid rgba(253,126,20,.3);border-radius:12px;width:380px;padding:24px;}
@@ -240,9 +251,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
             <div class="ph-title"><i class="ti ti-stack-2"></i> Tickets masivos</div>
             <div class="ph-sub">Creación y seguimiento de actividades masivas · Solo administradores</div>
           </div>
-          <button class="btn-p" onclick="document.getElementById('modal-nuevo').classList.add('open')">
-            <i class="ti ti-plus"></i> Nuevo masivo
-          </button>
+            <div style="display:flex;gap:8px;">
+            <button class="btn-s" onclick="document.getElementById('modal-plan').classList.add('open')"><i class="ti ti-calendar-plus"></i> Nueva planeación</button>
+            <button class="btn-p" onclick="document.getElementById('modal-nuevo').classList.add('open');initAsignador()"><i class="ti ti-plus"></i> Nuevo masivo</button>
+          </div>
         </div>
 
         <div class="filters">
@@ -256,12 +268,40 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
           <button class="btn-p" style="margin-left:auto;"><i class="ti ti-search"></i> Buscar</button>
         </div>
 
+        <!-- PLAN -->
+        <div class="plan-card">
+          <div class="plan-hdr open" id="plh0" onclick="togPlan(0)">
+            <span class="plan-bdg">PLAN</span>
+            <div class="m-title">Plan: Actualización Q3 2026</div>
+            <div class="m-meta" style="font-size:11px;color:#6b7f8e;">Programado 15 ago · 2 masivos</div>
+            <span class="m-estado e-plan"><span class="sdot" style="background:#00d4a8;"></span> Planeado</span>
+            <i class="ti ti-chevron-down chev open" id="plc0"></i>
+          </div>
+          <div class="plan-det open" id="pld0">
+            <div class="det-sec" style="margin-top:0;">Masivos en este plan</div>
+            <div class="plan-m-row">
+              <span class="m-badge">MASIVO</span>
+              <div style="flex:1;font-size:12px;color:#c0d0dc;">Actualización de software en equipos de caja</div>
+              <span class="m-estado e-pr" style="font-size:10.5px;"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
+              <div class="m-pw"><div class="m-pf" style="width:62%;"></div></div>
+              <div class="m-pct" style="font-size:10.5px;">62%</div>
+            </div>
+            <div class="plan-m-row">
+              <span class="m-badge">MASIVO</span>
+              <div style="flex:1;font-size:12px;color:#c0d0dc;">Cambio de contraseñas administrativas</div>
+              <span class="m-estado e-co" style="font-size:10.5px;"><span class="sdot" style="background:#28A745;"></span> Completado</span>
+              <div class="m-pw"><div class="m-pf" style="width:100%;"></div></div>
+              <div class="m-pct" style="font-size:10.5px;">100%</div>
+            </div>
+          </div>
+        </div>
+
         <!-- MASIVO 1 -->
         <div class="masivo-card">
           <div class="masivo-hdr open" id="mh0" onclick="toggleMasivo(0)">
             <span class="m-badge">MASIVO</span>
             <div class="m-title">Actualización de software en equipos de tiendas</div>
-            <div class="m-meta">Creado 28 jul · Vence 05 ago</div>
+            <div class="m-meta">Ticket #315900 · Vence 05 ago</div>
             <span class="m-estado e-pr"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
             <div class="m-pw"><div class="m-pf" style="width:62%;"></div></div>
             <div class="m-pct">62%</div>
@@ -600,44 +640,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 
       <div class="form-group">
         <label class="form-label" style="margin-bottom:8px;">Asignar técnicos y bodegas <span>*</span></label>
-        <div style="font-size:11px;color:#6b7f8e;margin-bottom:10px;">Selecciona uno o varios técnicos. Cada uno tiene sus bodegas predeterminadas. Puedes quitar bodegas o agregar otras — si una bodega pertenece a otro técnico, se te pedirá confirmación.</div>
-
-        <!-- TÉCNICO 1 -->
-        <div class="agente-block">
-          <div class="agente-hdr selected" onclick="toggleAgente(0)">
-            <div class="agente-check checked" id="ac0">✓</div>
-            <div class="agente-av" style="background:#00d4a8;">GE</div>
-            <div class="agente-info">
-              <div class="agente-name">Gelvez Esneyder</div>
-              <div class="agente-zona">Zona Norte · 10 bodegas predeterminadas</div>
+        <div style="font-size:11px;color:#6b7f8e;margin-bottom:10px;">Selecciona un técnico a la izquierda para ver y gestionar sus bodegas. Las bloqueadas ya están asignadas a otro técnico en este masivo.</div>
+        <div style="display:grid;grid-template-columns:220px 1fr;gap:10px;height:320px;">
+          <!-- Panel izq: técnicos -->
+          <div style="background:#111c26;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;">
+            <div style="padding:7px 10px;border-bottom:1px solid #1e2d3d;background:#0d1520;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:10px;color:#8a9db0;font-weight:600;text-transform:uppercase;">Técnicos</span>
+              <span style="font-size:10px;color:#00d4a8;" id="tec-sel-count">0 seleccionados</span>
             </div>
-            <i class="ti ti-chevron-down chev open" id="achev0"></i>
+            <div style="overflow-y:auto;flex:1;" id="tec-panel"></div>
           </div>
-          <div class="agente-body open" id="ab0">
-            <div class="bodega-selector-title">
-              Bodegas predeterminadas
-              <button onclick="toggleAllBodegas('ge', true)">Seleccionar todas</button>
+          <!-- Panel der: bodegas -->
+          <div style="background:#111c26;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;">
+            <div style="padding:7px 10px;border-bottom:1px solid #1e2d3d;background:#0d1520;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:10px;color:#8a9db0;font-weight:600;text-transform:uppercase;" id="bod-panel-title">Selecciona un técnico →</span>
+              <button onclick="selAllBodegas()" style="font-size:10px;color:#00d4a8;background:none;border:none;cursor:pointer;">Seleccionar todas</button>
             </div>
-            <div id="bodegas-ge">
-              <div class="bodega-item selected-b" onclick="toggleBodega(this,'ge','STIRPE Guatapurí')">
-                <div class="bchk on">✓</div><div class="b-item-name">STIRPE Guatapurí (8580)</div>
-              </div>
-              <div class="bodega-item selected-b" onclick="toggleBodega(this,'ge','Derek Ensueño')">
-                <div class="bchk on">✓</div><div class="b-item-name">Derek Ensueño (545)</div>
-              </div>
-              <div class="bodega-item selected-b" onclick="toggleBodega(this,'ge','Equis Cacique 2')">
-                <div class="bchk on">✓</div><div class="b-item-name">Equis Cacique 2 (8130)</div>
-              </div>
-              <div class="bodega-item selected-b" onclick="toggleBodega(this,'ge','Derek La Colina')">
-                <div class="bchk on">✓</div><div class="b-item-name">Derek La Colina (865)</div>
-              </div>
-              <div class="bodega-item" onclick="toggleBodega(this,'ge','STIRPE Unicentro P2')">
-                <div class="bchk"></div><div class="b-item-name">STIRPE Unicentro P2 (631)</div>
-              </div>
-            </div>
-            <button class="add-extra-btn" onclick="showExtraBodegas('ge')">
-              <i class="ti ti-plus" style="font-size:11px;"></i> Agregar bodega de otra zona
-            </button>
+            <input id="bod-search" type="text" placeholder="Buscar bodega..." oninput="renderBodegas()" style="background:#0f1923;border:none;border-bottom:1px solid #1e2d3d;padding:6px 10px;color:#c0d0dc;font-size:11.5px;outline:none;">
+            <div style="overflow-y:auto;flex:1;" id="bod-panel"><div style="padding:20px;text-align:center;color:#4a6070;font-size:11.5px;">← Selecciona un técnico</div></div>
+            <div style="padding:6px 10px;border-top:1px solid #1e2d3d;font-size:11px;color:#6b7f8e;" id="bod-summary">—</div>
+          </div>
+        </div>
+        <div style="display:none;"><!-- legacy --></div>
             <div id="extra-ge" style="display:none;margin-top:8px;">
               <div style="font-size:10px;color:#4a6070;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Otras bodegas disponibles</div>
               <div class="bodega-item already-assigned" title="Ya asignada a Ivan Sanchez en este masivo">
@@ -659,46 +683,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
           </div>
         </div>
 
-        <!-- TÉCNICO 2 -->
-        <div class="agente-block">
-          <div class="agente-hdr" onclick="toggleAgente(1)">
-            <div class="agente-check" id="ac1"></div>
-            <div class="agente-av" style="background:#007a60;color:#fff;">IS</div>
-            <div class="agente-info">
-              <div class="agente-name">Ivan Sanchez</div>
-              <div class="agente-zona">Zona Sur · 8 bodegas predeterminadas</div>
-            </div>
-            <i class="ti ti-chevron-down chev" id="achev1"></i>
-          </div>
-          <div class="agente-body" id="ab1">
-            <div class="bodega-selector-title">Bodegas predeterminadas<button>Seleccionar todas</button></div>
-            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">Derek Arboleda (810)</div></div>
-            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">STIRPE Plaza Américas (781)</div></div>
-            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">U82 Titan (557)</div></div>
-            <button class="add-extra-btn"><i class="ti ti-plus" style="font-size:11px;"></i> Agregar bodega de otra zona</button>
-          </div>
-        </div>
-
-        <!-- TÉCNICO 3 -->
-        <div class="agente-block">
-          <div class="agente-hdr" onclick="toggleAgente(2)">
-            <div class="agente-check" id="ac2"></div>
-            <div class="agente-av" style="background:#00a884;">MR</div>
-            <div class="agente-info">
-              <div class="agente-name">María Rodríguez</div>
-              <div class="agente-zona">Zona Norte · 6 bodegas predeterminadas</div>
-            </div>
-            <i class="ti ti-chevron-down chev" id="achev2"></i>
-          </div>
-          <div class="agente-body" id="ab2">
-            <div class="bodega-selector-title">Bodegas predeterminadas<button>Seleccionar todas</button></div>
-            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">Derek Primavera (8510)</div></div>
-            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">STIRPE Tunal (241)</div></div>
-            <div class="bodega-item selected-b"><div class="bchk on">✓</div><div class="b-item-name">Travel LCuesta (8360)</div></div>
-            <button class="add-extra-btn"><i class="ti ti-plus" style="font-size:11px;"></i> Agregar bodega de otra zona</button>
-          </div>
-        </div>
-
       </div>
     </div>
     <div class="modal-foot">
@@ -708,12 +692,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
   </div>
 </div>
 
-<!-- ══ MODAL CONFIRMACIÓN OTRA ZONA ══ -->
+<!-- MODAL NUEVA PLANEACIÓN -->
+<div class="overlay" id="modal-plan">
+  <div class="modal" style="width:440px;">
+    <div class="modal-hdr">
+      <div class="modal-title"><i class="ti ti-calendar-plus" style="color:#00d4a8;margin-right:6px;"></i> Nueva planeación</div>
+      <button class="modal-close" onclick="document.getElementById('modal-plan').classList.remove('open')"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">Nombre del plan <span style="color:#e05252;">*</span></label><input class="form-input" type="text" placeholder="Ej: Plan actualización Q3 2026"></div>
+      <div class="form-group"><label class="form-label">Descripción</label><textarea class="form-textarea" placeholder="Objetivo del plan..." style="min-height:50px;"></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Fecha programada <span style="color:#e05252;">*</span></label><input class="form-input" type="date"></div>
+        <div class="form-group"><label class="form-label">Responsable</label><select class="form-input"><option>Todos los admin</option><option>AUXSISTEM2</option></select></div>
+      </div>
+      <div style="font-size:11px;color:#6b7f8e;background:#111c26;border:1px solid #1e2d3d;border-radius:6px;padding:9px 11px;line-height:1.6;">
+        <i class="ti ti-info-circle" style="color:#00d4a8;"></i> Una vez creado el plan, agrega masivos desde el panel principal y asócialos a este plan.
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-s" onclick="document.getElementById('modal-plan').classList.remove('open')">Cancelar</button>
+      <button class="btn-p"><i class="ti ti-check"></i> Crear plan</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CONFIRMACIÓN BODEGA OTRO TEC -->
 <div class="overlay" id="modal-confirm">
   <div class="confirm-modal">
     <div class="confirm-icon"><i class="ti ti-alert-triangle" style="color:#FD7E14;font-size:20px;"></i></div>
     <div class="confirm-title">Bodega de otro técnico</div>
-    <div class="confirm-body" id="confirm-body">Esta bodega pertenece a <strong>Ivan Sanchez</strong>. Si la asignas a Gelvez Esneyder en este masivo, Ivan Sanchez no la verá en esta tarea. ¿Confirmas la asignación?</div>
+    <div class="confirm-body" id="confirm-body"></div>
     <div class="confirm-btns">
       <button class="btn-s" onclick="document.getElementById('modal-confirm').classList.remove('open')">Cancelar</button>
       <button class="btn-warn" onclick="confirmarAsignacion()"><i class="ti ti-check"></i> Confirmar</button>
@@ -722,7 +731,150 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 </div>
 
 <script>
-let pendingBodegaEl = null;
+// ── DATOS CSV ──────────────────────────────────────────────────
+const TECNICOS = {
+  "AUXSISTEM2":["1055","1054","1053","1052","1051","1050","999","998","997","996"],
+  "AUXSISTE18":["921","920","919","918","917","916","915","914","913","912"],
+  "AUXSISTEM5":["886","856","852","838","836","827","826","739","738","737"],
+  "AUXSISTEM1":["894","883","882","881","871","870","869","867","866","865"],
+  "AUXSISTE12":["973","969","968","967","966","965","964","963","962","961"],
+  "AUXSISTEM4":["895","892","891","889","888","887","885","879","878","877"],
+  "AUXSISTE13":["990","985","975","972","898","880","875","874","873","872"],
+  "AUXSISTE23":["970","893","890","853","831","821","820","818","817","816"],
+  "AUXSISTE17":["956","717","716","711","519","341","339","338","337","336"],
+  "AUXSISTE15":["319","318","317","314","313","312","311","310","309","308"],
+  "AUXSISTE19":["977","976","955","953","952","730","719","706"],
+  "AUXSISTE14":["957","949","948","947","526","334"],
+  "AUXSISTE21":["345","344"]
+};
+const TEC_COLORS = {"AUXSISTEM2":"#00d4a8","AUXSISTE18":"#00a884","AUXSISTEM5":"#007a60","AUXSISTEM1":"#005244","AUXSISTE12":"#5b9bf8","AUXSISTEM4":"#a09be8","AUXSISTE13":"#FFC107","AUXSISTE23":"#FD7E14","AUXSISTE17":"#e05252","AUXSISTE15":"#28A745","AUXSISTE19":"#00d4a8","AUXSISTE14":"#00a884","AUXSISTE21":"#007a60"};
+
+let selectedTec = null;
+let assignedBodegas = {}; // {tec: Set}
+let pendingConf = null;
+
+function initAsignador() {
+  assignedBodegas = {};
+  selectedTec = null;
+  renderTecPanel();
+  document.getElementById('bod-panel').innerHTML = '<div style="padding:20px;text-align:center;color:#4a6070;font-size:11.5px;">← Selecciona un técnico</div>';
+  document.getElementById('bod-summary').textContent = '—';
+  document.getElementById('bod-panel-title').textContent = 'Selecciona un técnico →';
+  document.getElementById('tec-sel-count').textContent = '0 seleccionados';
+}
+
+function renderTecPanel() {
+  const el = document.getElementById('tec-panel');
+  if(!el) return;
+  el.innerHTML = '';
+  const selCount = Object.keys(assignedBodegas).length;
+  document.getElementById('tec-sel-count').textContent = selCount + ' seleccionados';
+  Object.keys(TECNICOS).forEach(tec => {
+    const hasAsgn = !!assignedBodegas[tec];
+    const cnt = hasAsgn ? assignedBodegas[tec].size : 0;
+    const total = TECNICOS[tec].length;
+    const isActive = selectedTec === tec;
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex;align-items:center;gap:7px;padding:7px 10px;cursor:pointer;border-bottom:1px solid #1a2836;${hasAsgn?'background:rgba(0,212,168,.05)':''}${isActive?';outline:1px solid #00d4a8;outline-offset:-1px':''}`;
+    div.onclick = () => { selectedTec = tec; renderTecPanel(); renderBodPanel(); };
+    const c = TEC_COLORS[tec]||'#00d4a8';
+    div.innerHTML = `
+      <div style="width:14px;height:14px;border-radius:3px;border:1.5px solid ${hasAsgn?'#00d4a8':'#1e2d3d'};background:${hasAsgn?'#00d4a8':'transparent'};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#0a1a12;">${hasAsgn?'✓':''}</div>
+      <div style="width:22px;height:22px;border-radius:50%;background:${c};color:#0a1a12;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;flex-shrink:0;">${tec.slice(-2)}</div>
+      <div style="flex:1;font-size:11.5px;color:${isActive?'#00d4a8':'#c0d0dc'};">${tec}</div>
+      <div style="font-size:10px;color:#6b7f8e;">${hasAsgn?cnt+'/'+total:total}</div>
+    `;
+    el.appendChild(div);
+  });
+}
+
+function renderBodPanel() {
+  if(!selectedTec) return;
+  document.getElementById('bod-panel-title').textContent = selectedTec;
+  const filter = (document.getElementById('bod-search')||{}).value||'';
+  const el = document.getElementById('bod-panel');
+  el.innerHTML = '';
+  const myBods = TECNICOS[selectedTec];
+  const assigned = assignedBodegas[selectedTec] || new Set();
+
+  // Propias
+  const g1 = document.createElement('div');
+  g1.innerHTML = `<div style="padding:5px 10px;background:#0d1520;font-size:10px;color:#6b7f8e;font-weight:600;text-transform:uppercase;">Propias (${myBods.length})</div>`;
+  myBods.filter(b => !filter || b.includes(filter)).forEach(b => {
+    const sel = assigned.has(b);
+    const row = document.createElement('div');
+    row.style.cssText = `display:flex;align-items:center;gap:7px;padding:5px 10px 5px 16px;cursor:pointer;border-bottom:1px solid #1a2836;${sel?'background:rgba(0,212,168,.04)':''}`;
+    row.onclick = () => { toggleBod(b, selectedTec, null); };
+    row.innerHTML = `<div style="width:13px;height:13px;border-radius:3px;border:1.5px solid ${sel?'#00d4a8':'#1e2d3d'};background:${sel?'#00d4a8':'transparent'};display:flex;align-items:center;justify-content:center;font-size:8px;color:#0a1a12;flex-shrink:0;">${sel?'✓':''}</div><div style="flex:1;font-size:11.5px;color:#c0d0dc;">Bodega ${b}</div><div style="font-size:10px;color:#00d4a8;">Suya</div>`;
+    g1.appendChild(row);
+  });
+  el.appendChild(g1);
+
+  // Otras
+  const g2 = document.createElement('div');
+  g2.innerHTML = `<div style="padding:5px 10px;background:#0d1520;font-size:10px;color:#6b7f8e;font-weight:600;text-transform:uppercase;margin-top:4px;">Otras bodegas (otros técnicos)</div>`;
+  Object.entries(TECNICOS).forEach(([otherTec, bods]) => {
+    if(otherTec === selectedTec) return;
+    bods.filter(b => !filter || b.includes(filter)).forEach(b => {
+      const takenByOther = Object.entries(assignedBodegas).some(([t,s]) => t !== selectedTec && s.has(b));
+      const sel = assigned.has(b);
+      const row = document.createElement('div');
+      row.style.cssText = `display:flex;align-items:center;gap:7px;padding:5px 10px 5px 16px;border-bottom:1px solid #1a2836;${takenByOther&&!sel?'opacity:.45;':'cursor:pointer;'}${sel?'background:rgba(0,212,168,.04)':''}`;
+      if(takenByOther && !sel) {
+        row.innerHTML = `<div style="width:13px;height:13px;border-radius:3px;background:#1e2d3d;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="ti ti-lock" style="font-size:8px;color:#4a6070;"></i></div><div style="flex:1;font-size:11.5px;color:#c0d0dc;">Bodega ${b}</div><div style="font-size:10px;color:#4a6070;display:flex;align-items:center;gap:2px;"><span style="width:4px;height:4px;border-radius:50%;background:#FD7E14;display:inline-block;"></span>${otherTec}</div>`;
+      } else {
+        row.onclick = () => toggleBod(b, selectedTec, otherTec);
+        row.innerHTML = `<div style="width:13px;height:13px;border-radius:3px;border:1.5px solid ${sel?'#00d4a8':'#1e2d3d'};background:${sel?'#00d4a8':'transparent'};display:flex;align-items:center;justify-content:center;font-size:8px;color:#0a1a12;flex-shrink:0;">${sel?'✓':''}</div><div style="flex:1;font-size:11.5px;color:#c0d0dc;">Bodega ${b}</div><div style="font-size:10px;color:#FD7E14;">→ ${otherTec}</div>`;
+      }
+      g2.appendChild(row);
+    });
+  });
+  el.appendChild(g2);
+
+  const cnt = assigned.size;
+  document.getElementById('bod-summary').innerHTML = `<span style="color:#00d4a8;font-weight:600;">${cnt}</span> bodegas asignadas a ${selectedTec}`;
+}
+
+function toggleBod(b, tec, fromOther) {
+  if(!assignedBodegas[tec]) assignedBodegas[tec] = new Set();
+  if(assignedBodegas[tec].has(b)) {
+    assignedBodegas[tec].delete(b);
+    if(!assignedBodegas[tec].size) delete assignedBodegas[tec];
+    renderTecPanel(); renderBodPanel(); return;
+  }
+  if(fromOther) {
+    pendingConf = {b, tec, fromOther};
+    document.getElementById('confirm-body').innerHTML = `La bodega <strong>${b}</strong> pertenece a <strong>${fromOther}</strong>. Si la asignas a <strong>${tec}</strong>, este técnico la gestionará en este masivo. ¿Confirmas?`;
+    document.getElementById('modal-confirm').classList.add('open');
+    return;
+  }
+  assignedBodegas[tec].add(b);
+  renderTecPanel(); renderBodPanel();
+}
+
+function selAllBodegas() {
+  if(!selectedTec) return;
+  if(!assignedBodegas[selectedTec]) assignedBodegas[selectedTec] = new Set();
+  TECNICOS[selectedTec].forEach(b => assignedBodegas[selectedTec].add(b));
+  renderTecPanel(); renderBodPanel();
+}
+
+function confirmarAsignacion() {
+  if(pendingConf) {
+    const {b, tec} = pendingConf;
+    if(!assignedBodegas[tec]) assignedBodegas[tec] = new Set();
+    assignedBodegas[tec].add(b);
+    pendingConf = null;
+    renderTecPanel(); renderBodPanel();
+  }
+  document.getElementById('modal-confirm').classList.remove('open');
+}
+
+function togPlan(i) {
+  const d=document.getElementById('pld'+i),c=document.getElementById('plc'+i),h=document.getElementById('plh'+i);
+  const o=d.classList.contains('open');
+  d.classList.toggle('open',!o);c.classList.toggle('open',!o);h.classList.toggle('open',!o);
+}
 
 function switchView(v) {
   ['masivos','incidentes','llamadas'].forEach(id => {

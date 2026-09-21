@@ -179,17 +179,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 .chip-x{position:absolute;top:-6px;right:-6px;width:15px;height:15px;border-radius:50%;background:#e05252;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1;font-weight:700;cursor:pointer;border:1.5px solid #111c26;}
 .chip-x:hover{background:#c23f3f;}
 
-/* PLAN CARD */
-.plan-card{background:#162030;border:1px solid rgba(0,212,168,.2);border-radius:8px;overflow:hidden;margin-bottom:8px;}
-.plan-hdr{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;}
-.plan-hdr:hover{background:#1a2836;}
-.plan-hdr.open{border-bottom:1px solid #1e2d3d;}
-.plan-det{display:none;background:#111c26;padding:12px 14px;}
-.plan-det.open{display:block;}
-.plan-m-row{display:flex;align-items:center;gap:8px;padding:6px 10px;background:#162030;border:1px solid #1e2d3d;border-radius:6px;margin-bottom:5px;}
-.plan-m-row:last-child{margin-bottom:0;}
-.plan-bdg{background:rgba(0,212,168,.1);color:#00d4a8;border:1px solid rgba(0,212,168,.25);border-radius:12px;font-size:10px;font-weight:600;padding:2px 7px;flex-shrink:0;}
-.e-plan{background:rgba(0,212,168,.1);color:#00d4a8;}
 
 /* MODAL CONFIRMACIÓN */
 .confirm-modal{background:#162030;border:1px solid rgba(253,126,20,.3);border-radius:12px;width:380px;padding:24px;}
@@ -237,7 +226,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
             <div class="ph-sub">Creación y seguimiento de actividades masivas · Solo administradores</div>
           </div>
             <div style="display:flex;gap:8px;">
-            <button class="btn-s" onclick="document.getElementById('modal-plan').classList.add('open')"><i class="ti ti-calendar-plus"></i> Nueva planeación</button>
             <button class="btn-p" onclick="document.getElementById('modal-nuevo').classList.add('open');initAsignador();initClasificacion()"><i class="ti ti-plus"></i> Nuevo masivo</button>
           </div>
         </div>
@@ -251,34 +239,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
           <select class="f-sel" style="min-width:140px;"><option>Todos</option><option>Gelvez Esneyder</option><option>Ivan Sanchez</option><option>María Rodríguez</option></select>
           <input class="f-input" type="text" placeholder="Buscar masivo...">
           <button class="btn-p" style="margin-left:auto;"><i class="ti ti-search"></i> Buscar</button>
-        </div>
-
-        <!-- PLAN -->
-        <div class="plan-card">
-          <div class="plan-hdr open" id="plh0" onclick="togPlan(0)">
-            <span class="plan-bdg">PLAN</span>
-            <div class="m-title">Plan: Actualización Q3 2026</div>
-            <div class="m-meta" style="font-size:11px;color:#6b7f8e;">Programado 15 ago · 2 masivos</div>
-            <span class="m-estado e-plan"><span class="sdot" style="background:#00d4a8;"></span> Planeado</span>
-            <i class="ti ti-chevron-down chev open" id="plc0"></i>
-          </div>
-          <div class="plan-det open" id="pld0">
-            <div class="det-sec" style="margin-top:0;">Masivos en este plan</div>
-            <div class="plan-m-row">
-              <span class="m-badge">MASIVO</span>
-              <div style="flex:1;font-size:12px;color:#c0d0dc;">Actualización de software en equipos de caja</div>
-              <span class="m-estado e-pr" style="font-size:10.5px;"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
-              <div class="m-pw"><div class="m-pf" style="width:62%;"></div></div>
-              <div class="m-pct" style="font-size:10.5px;">62%</div>
-            </div>
-            <div class="plan-m-row">
-              <span class="m-badge">MASIVO</span>
-              <div style="flex:1;font-size:12px;color:#c0d0dc;">Cambio de contraseñas administrativas</div>
-              <span class="m-estado e-co" style="font-size:10.5px;"><span class="sdot" style="background:#28A745;"></span> Completado</span>
-              <div class="m-pw"><div class="m-pf" style="width:100%;"></div></div>
-              <div class="m-pct" style="font-size:10.5px;">100%</div>
-            </div>
-          </div>
         </div>
 
         <!-- MASIVO 1 -->
@@ -455,7 +415,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
               <!-- FILA MASIVO -->
               <tr class="masivo-row" onclick="toggleInline()">
                 <td><span class="bdg b-mas"><i class="ti ti-stack-2" style="font-size:11px;"></i> Masivo</span></td>
-                <td style="font-weight:600;color:#a09be8;">#MAS-001</td>
+                <td style="font-weight:600;color:#a09be8;">#315901</td>
                 <td><span class="bdg b-pr"><span class="sdot" style="background:#FFC107;"></span>En Progreso</span></td>
                 <td><span class="bdg b-prio-m">Media</span></td>
                 <td style="font-size:11.5px;">Zona Norte</td>
@@ -468,7 +428,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
               <tr id="inline-tec" style="display:none;">
                 <td colspan="8" style="padding:0;">
                   <div class="masivo-inline open">
-                    <div class="mi-title"><i class="ti ti-stack-2"></i> Masivo #MAS-001 — Zona Norte · Actualización de software</div>
+                    <div class="mi-title"><i class="ti ti-stack-2"></i> Masivo #315901 — Zona Norte · Actualización de software</div>
                     <div class="mi-desc">Actualizar el módulo de facturación en todos los equipos de caja de tus tiendas asignadas. Vence el 05 de agosto.</div>
 
                     <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
@@ -656,7 +616,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
           <select id="bod-tec-filter" class="f-sel" onchange="renderBodegasList()" style="font-size:11.5px;">
             <option value="">Todos los técnicos</option>
           </select>
-          <button class="btn-s" style="font-size:11px;padding:4px 10px;margin-left:auto;" onclick="selAllFiltered()"><i class="ti ti-checks"></i> Seleccionar responsables originales</button>
         </div>
 
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;background:#0d1520;border:1px solid #1e2d3d;border-radius:6px;padding:6px 10px;">
@@ -682,31 +641,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
     <div class="modal-foot">
       <button class="btn-s" onclick="document.getElementById('modal-nuevo').classList.remove('open')">Cancelar</button>
       <button class="btn-p"><i class="ti ti-check"></i> Crear masivo</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL NUEVA PLANEACIÓN -->
-<div class="overlay" id="modal-plan">
-  <div class="modal" style="width:440px;">
-    <div class="modal-hdr">
-      <div class="modal-title"><i class="ti ti-calendar-plus" style="color:#00d4a8;margin-right:6px;"></i> Nueva planeación</div>
-      <button class="modal-close" onclick="document.getElementById('modal-plan').classList.remove('open')"><i class="ti ti-x"></i></button>
-    </div>
-    <div class="modal-body">
-      <div class="form-group"><label class="form-label">Nombre del plan <span style="color:#e05252;">*</span></label><input class="form-input" type="text" placeholder="Ej: Plan actualización Q3 2026"></div>
-      <div class="form-group"><label class="form-label">Descripción</label><textarea class="form-textarea" placeholder="Objetivo del plan..." style="min-height:50px;"></textarea></div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">Fecha programada <span style="color:#e05252;">*</span></label><input class="form-input" type="date"></div>
-        <div class="form-group"><label class="form-label">Responsable</label><select class="form-input"><option>Todos los admin</option><option>AUXSISTEM2</option></select></div>
-      </div>
-      <div style="font-size:11px;color:#6b7f8e;background:#111c26;border:1px solid #1e2d3d;border-radius:6px;padding:9px 11px;line-height:1.6;">
-        <i class="ti ti-info-circle" style="color:#00d4a8;"></i> Una vez creado el plan, agrega masivos desde el panel principal y asócialos a este plan.
-      </div>
-    </div>
-    <div class="modal-foot">
-      <button class="btn-s" onclick="document.getElementById('modal-plan').classList.remove('open')">Cancelar</button>
-      <button class="btn-p"><i class="ti ti-check"></i> Crear plan</button>
     </div>
   </div>
 </div>
@@ -741,7 +675,7 @@ const TECNICOS = {
   "AUXSISTE14":["957","949","948","947","526","334"],
   "AUXSISTE21":["345","344"]
 };
-const TEC_COLORS = {"AUXSISTEM2":"#00d4a8","AUXSISTE18":"#00a884","AUXSISTEM5":"#007a60","AUXSISTEM1":"#005244","AUXSISTE12":"#5b9bf8","AUXSISTEM4":"#a09be8","AUXSISTE13":"#FFC107","AUXSISTE23":"#FD7E14","AUXSISTE17":"#e05252","AUXSISTE15":"#28A745","AUXSISTE19":"#00d4a8","AUXSISTE14":"#00a884","AUXSISTE21":"#007a60"};
+const TEC_COLOR = '#00d4a8'; // mismo color para todos los técnicos; el usuario ya los identifica
 
 // Clasificación de bodegas por tipo. CEDI = lista fija dada por negocio.
 // Administrativo/Tiendas es una regla de ejemplo (código >= 900 = Administrativo) — ajustar cuando exista el dato real.
@@ -792,12 +726,14 @@ let assignedBodegas = {};   // tec -> Set(codigos) asignados EN ESTE MASIVO
 let bodegaAssignedTo = {};  // codigo -> tec (reverso, solo dentro de este masivo)
 let selectedBodegas = new Set(); // checkboxes marcados para acciones en lote
 let pendingConf = null; // {codes, tec}
+let resumenExpanded = new Set(); // técnicos con el detalle de bodegas desplegado en el resumen
 
 function initAsignador() {
   assignedBodegas = {};
   bodegaAssignedTo = {};
   selectedBodegas = new Set();
   pendingConf = null;
+  resumenExpanded = new Set();
   const search = document.getElementById('bod-search'); if (search) search.value = '';
   const tf = document.getElementById('bod-tipo-filter'); if (tf) tf.value = '';
   const tecF = document.getElementById('bod-tec-filter');
@@ -815,14 +751,6 @@ function toggleSelectBodega(code, ev) {
   renderBodegasList();
 }
 
-function selAllFiltered() {
-  const tecF = (document.getElementById('bod-tec-filter') || {}).value || '';
-  const list = getFilteredBodegas();
-  const target = tecF ? list.filter(b => BODEGA_OWNER[b] === tecF) : list;
-  const yaTodasSeleccionadas = target.length && target.every(b => selectedBodegas.has(b));
-  target.forEach(b => yaTodasSeleccionadas ? selectedBodegas.delete(b) : selectedBodegas.add(b));
-  renderBodegasList();
-}
 
 function bulkAssign() {
   const tec = document.getElementById('bulk-assign-tec').value;
@@ -870,7 +798,7 @@ function renderBodegasList() {
     const tipo = tipoBodega(code);
     const asignadaA = bodegaAssignedTo[code];
     const sel = selectedBodegas.has(code);
-    const c = asignadaA ? (TEC_COLORS[asignadaA] || '#00d4a8') : null;
+    const c = asignadaA ? TEC_COLOR : null;
     const esDelFiltro = tecF && BODEGA_OWNER[code] === tecF;
     const rowBg = sel ? 'background:rgba(0,212,168,.08);' : (esDelFiltro ? 'background:rgba(0,212,168,.05);' : '');
     return `
@@ -895,22 +823,37 @@ function renderResumen() {
     el.innerHTML = '<span style="color:#4a6070;">Aún no has asignado bodegas a ningún técnico.</span>';
     return;
   }
-  el.innerHTML = '<span style="color:#6b7f8e;margin-right:8px;font-weight:600;">Resumen de asignación:</span>' + activos.map(tec => {
-    const c = TEC_COLORS[tec] || '#00d4a8';
-    const n = assignedBodegas[tec].size;
-    return `<span style="display:inline-flex;align-items:center;gap:5px;background:#162030;border:1px solid ${c}55;border-radius:12px;padding:3px 10px;margin:2px 6px 2px 0;font-size:11px;color:${c};font-weight:600;">${tec} <span style="color:#c0d0dc;font-weight:400;">· ${n} bodega${n > 1 ? 's' : ''}</span></span>`;
+  el.innerHTML = '<span style="width:100%;color:#6b7f8e;font-weight:600;margin-bottom:2px;">Resumen de asignación (clic para ver detalle):</span>' + activos.map(tec => {
+    const c = TEC_COLOR;
+    const codes = Array.from(assignedBodegas[tec]).sort((a, b) => (+a) - (+b));
+    const n = codes.length;
+    const open = resumenExpanded.has(tec);
+    return `
+      <span onclick="toggleResumenTec('${tec}')" style="display:inline-flex;align-items:center;gap:5px;background:#162030;border:1px solid ${c}55;border-radius:12px;padding:3px 10px;margin:2px 6px 2px 0;font-size:11px;color:${c};font-weight:600;cursor:pointer;">
+        ${tec} <span style="color:#c0d0dc;font-weight:400;">· ${n} bodega${n > 1 ? 's' : ''}</span>
+        <i class="ti ti-chevron-down" style="font-size:12px;transition:transform .15s;${open ? 'transform:rotate(180deg);' : ''}"></i>
+      </span>
+      ${open ? `<div style="flex-basis:100%;font-size:10.5px;color:#8a9db0;background:#0d1520;border:1px solid ${c}33;border-radius:6px;padding:6px 10px;margin:0 0 4px;">${codes.map(cd => 'Bodega ' + cd).join(', ')}</div>` : ''}`;
   }).join('');
+}
+
+function toggleResumenTec(tec) {
+  if (resumenExpanded.has(tec)) resumenExpanded.delete(tec);
+  else resumenExpanded.add(tec);
+  renderResumen();
 }
 
 function handleAssignRequest(codes, tec) {
   if (!codes.length) return;
-  const conflictos = codes.filter(c => bodegaAssignedTo[c] && bodegaAssignedTo[c] !== tec);
+  const conflictos = codes.filter(c => bodegaAssignedTo[c] ? bodegaAssignedTo[c] !== tec : BODEGA_OWNER[c] !== tec);
   const directos = codes.filter(c => !conflictos.includes(c) && bodegaAssignedTo[c] !== tec);
   if (directos.length) asignarCodigos(directos, tec);
   if (conflictos.length) {
     pendingConf = { codes: conflictos, tec };
-    const detalle = conflictos.map(c => `Bodega ${c} (hoy en ${bodegaAssignedTo[c]})`).join(', ');
-    document.getElementById('confirm-body').innerHTML = `Vas a mover ${conflictos.length > 1 ? 'estas bodegas' : 'esta bodega'}: <strong>${detalle}</strong> hacia <strong>${tec}</strong>. ¿Confirmas la reasignación?`;
+    const detalle = conflictos.map(c => bodegaAssignedTo[c]
+      ? `Bodega ${c} (hoy en ${bodegaAssignedTo[c]})`
+      : `Bodega ${c} (responsable original: ${BODEGA_OWNER[c]})`).join(', ');
+    document.getElementById('confirm-body').innerHTML = `Vas a asignar ${conflictos.length > 1 ? 'estas bodegas, que no son' : 'esta bodega, que no es'} de <strong>${tec}</strong>: <strong>${detalle}</strong>. ¿Confirmas la asignación?`;
     document.getElementById('modal-confirm').classList.add('open');
   }
 }
@@ -955,11 +898,6 @@ function cancelarConfirmacion() {
 }
 
 // ── NAVEGACIÓN / UI EXISTENTE ─────────────────────────────────
-function togPlan(i) {
-  const d=document.getElementById('pld'+i),c=document.getElementById('plc'+i),h=document.getElementById('plh'+i);
-  const o=d.classList.contains('open');
-  d.classList.toggle('open',!o);c.classList.toggle('open',!o);h.classList.toggle('open',!o);
-}
 
 function switchView(v) {
   ['masivos','incidentes','llamadas'].forEach(id => {

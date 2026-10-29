@@ -268,8 +268,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                 <div class="tec-av">GE</div>
                 <div class="tec-name">Gelvez Esneyder</div>
                 <div style="flex:1;"></div>
-                <div class="tec-tickets" style="font-size:13px;font-weight:700;color:#e0e6ec;">3 <span style="font-size:11px;color:#6b7f8e;font-weight:400;">/ 5</span></div>
-                <span class="tec-est e-pr"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
+                <div class="tec-tickets" id="cnt-ge" style="font-size:13px;font-weight:700;color:#e0e6ec;">3 <span style="font-size:11px;color:#6b7f8e;font-weight:400;">/ 5</span></div>
+                <span class="tec-est e-pr" id="est-ge"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
                 <i class="ti ti-chevron-down chev" id="chev-td-ge"></i>
               </div>
               <div class="tec-detail" id="td-ge">
@@ -290,12 +290,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                   <span class="note-time">—</span>
                   <span class="note-body" style="color:#4a6070;">STIRPE Barranca y Derek Primavera aún pendientes.</span>
                 </div>
-                <div style="margin-top:10px;background:rgba(255,193,7,.06);border:1px solid rgba(255,193,7,.2);border-radius:6px;padding:7px 10px;font-size:11.5px;color:#e6ac00;display:flex;align-items:center;gap:6px;">
+                <div id="alert-ge" style="margin-top:10px;background:rgba(255,193,7,.06);border:1px solid rgba(255,193,7,.2);border-radius:6px;padding:7px 10px;font-size:11.5px;color:#e6ac00;display:flex;align-items:center;gap:6px;">
                   <i class="ti ti-alert-triangle"></i> Aún hay bodegas pendientes. El botón Aceptar se activa cuando todas estén solucionadas.
                 </div>
-                <div style="display:flex;gap:8px;margin-top:8px;">
+                <div id="acts-ge" style="display:flex;gap:8px;margin-top:8px;">
                   <button disabled style="font-size:11px;padding:5px 10px;background:#1e2d3d;color:#4a6070;border:none;border-radius:6px;cursor:not-allowed;display:flex;align-items:center;gap:5px;"><i class="ti ti-check"></i> Aceptar</button>
-                  <button class="btn-s" style="font-size:11px;padding:5px 10px;color:#e05252;border-color:rgba(224,82,82,.3);"><i class="ti ti-x"></i> Rechazar</button>
+                  <button class="btn-s" onclick="abrirRechazo('ge')" style="font-size:11px;padding:5px 10px;color:#e05252;border-color:rgba(224,82,82,.3);"><i class="ti ti-x"></i> Rechazar</button>
                 </div>
               </div>
               <!-- TEC 2 -->
@@ -333,8 +333,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                 <div class="tec-av" style="background:#007a60;">IS</div>
                 <div class="tec-name">Ivan Sanchez</div>
                 <div style="flex:1;"></div>
-                <div class="tec-tickets" style="font-size:13px;font-weight:700;color:#e0e6ec;">1 <span style="font-size:11px;color:#6b7f8e;font-weight:400;">/ 3</span></div>
-                <span class="tec-est e-pr"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
+                <div class="tec-tickets" id="cnt-is" style="font-size:13px;font-weight:700;color:#e0e6ec;">1 <span style="font-size:11px;color:#6b7f8e;font-weight:400;">/ 3</span></div>
+                <span class="tec-est e-pr" id="est-is"><span class="sdot" style="background:#FFC107;"></span> En progreso</span>
                 <i class="ti ti-chevron-down chev" id="chev-td-is"></i>
               </div>
               <div class="tec-detail" id="td-is">
@@ -351,12 +351,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                   <span class="note-time" style="color:#FD7E14;">29/7 · 10:22</span>
                   <span class="note-body"><i class="ti ti-alert-circle" style="color:#FD7E14;font-size:12px;"></i> Reportó <strong>novedad</strong> en <strong>U82 Titan</strong>. Tipo: <em>Equipo dañado</em>. Nota: "El equipo de caja no enciende, requiere revisión técnica presencial."</span>
                 </div>
-                <div style="margin-top:8px;background:rgba(253,126,20,.06);border:1px solid rgba(253,126,20,.2);border-radius:6px;padding:7px 10px;font-size:11.5px;color:#FD7E14;display:flex;align-items:center;gap:6px;">
+                <div id="alert-is" style="margin-top:8px;background:rgba(253,126,20,.06);border:1px solid rgba(253,126,20,.2);border-radius:6px;padding:7px 10px;font-size:11.5px;color:#FD7E14;display:flex;align-items:center;gap:6px;">
                   <i class="ti ti-alert-triangle"></i> Hay una novedad reportada en U82 Titan. Puedes aceptar el avance con esta novedad o rechazarlo.
                 </div>
-                <div style="display:flex;gap:8px;margin-top:8px;">
+                <div id="acts-is" style="display:flex;gap:8px;margin-top:8px;">
                   <button class="btn-p" style="font-size:11px;padding:5px 10px;"><i class="ti ti-check"></i> Aceptar</button>
-                  <button class="btn-s" style="font-size:11px;padding:5px 10px;color:#e05252;border-color:rgba(224,82,82,.3);"><i class="ti ti-x"></i> Rechazar</button>
+                  <button class="btn-s" onclick="abrirRechazo('is')" style="font-size:11px;padding:5px 10px;color:#e05252;border-color:rgba(224,82,82,.3);"><i class="ti ti-x"></i> Rechazar</button>
                 </div>
               </div>
             </div>
@@ -432,34 +432,36 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                     <div class="mi-desc">Actualizar el módulo de facturación en todos los equipos de caja de tus tiendas asignadas. Vence el 05 de agosto.</div>
 
                     <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-                      <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:60%;"></div></div>
-                      <span style="font-size:12px;color:#00d4a8;font-weight:600;">60%</span>
-                      <span style="font-size:11px;color:#6b7f8e;">3 / 5 bodegas</span>
+                      <div class="prog-bar-wrap"><div class="prog-bar-fill" id="tec-prog-fill" style="width:60%;"></div></div>
+                      <span id="tec-prog-pct" style="font-size:12px;color:#00d4a8;font-weight:600;">60%</span>
+                      <span id="tec-prog-cnt" style="font-size:11px;color:#6b7f8e;">3 / 5 bodegas</span>
                     </div>
+
+                    <div id="tec-banner-rech" style="display:none;margin-bottom:12px;background:rgba(224,82,82,.06);border:1px solid rgba(224,82,82,.25);border-radius:6px;padding:7px 10px;font-size:11.5px;color:#e05252;align-items:center;gap:6px;"></div>
 
                     <div class="mi-sec">Reportar avance por bodega</div>
                     <div style="background:#162030;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;">
 
-                      <div class="bodega-row" style="padding:8px 12px;">
+                      <div class="bodega-row" data-bod="8580" style="padding:8px 12px;">
                         <div class="bodega-name">STIRPE Guatapurí (8580)</div>
                         <span class="bdg b-so" style="font-size:11px;margin-right:8px;"><span class="sdot" style="background:#28A745;"></span> Solucionada</span>
                         <div class="bodega-check done" title="Solucionada">✓</div>
                       </div>
 
-                      <div class="bodega-row" style="padding:8px 12px;">
+                      <div class="bodega-row" data-bod="545" style="padding:8px 12px;">
                         <div class="bodega-name">Derek Ensueño (545)</div>
                         <span class="bdg b-so" style="font-size:11px;margin-right:8px;"><span class="sdot" style="background:#28A745;"></span> Solucionada</span>
                         <div class="bodega-check done" title="Solucionada">✓</div>
                       </div>
 
-                      <div class="bodega-row" style="padding:8px 12px;">
+                      <div class="bodega-row" data-bod="8130" style="padding:8px 12px;">
                         <div class="bodega-name">Equis Cacique 2 (8130)</div>
                         <span class="bdg b-so" style="font-size:11px;margin-right:8px;"><span class="sdot" style="background:#28A745;"></span> Solucionada</span>
                         <div class="bodega-check done" title="Solucionada">✓</div>
                       </div>
 
                       <!-- BODEGA PENDIENTE 1 -->
-                      <div style="padding:8px 12px;border-bottom:1px solid #1a2836;">
+                      <div data-bod="520" style="padding:8px 12px;border-bottom:1px solid #1a2836;">
                         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
                           <div class="bodega-name">STIRPE Barranca (520)</div>
                           <span class="bdg b-ab" style="font-size:10.5px;"><span class="sdot" style="background:#5b9bf8;"></span> Abierta</span>
@@ -487,7 +489,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                       </div>
 
                       <!-- BODEGA PENDIENTE 2 -->
-                      <div style="padding:8px 12px;">
+                      <div data-bod="8510" style="padding:8px 12px;">
                         <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
                           <div class="bodega-name">Derek Primavera (8510)</div>
                           <span class="bdg b-ab" style="font-size:10.5px;"><span class="sdot" style="background:#5b9bf8;"></span> Abierta</span>
@@ -654,6 +656,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
     <div class="confirm-btns">
       <button class="btn-s" onclick="cancelarConfirmacion()">Cancelar</button>
       <button class="btn-warn" onclick="confirmarAsignacion()"><i class="ti ti-check"></i> Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL RECHAZO POR BODEGA -->
+<div class="overlay" id="modal-rechazo">
+  <div class="modal" style="width:560px;">
+    <div class="modal-hdr">
+      <div class="modal-title"><i class="ti ti-x" style="color:#e05252;margin-right:6px;"></i> Rechazar bodegas · <span id="rech-tec"></span></div>
+      <button class="modal-close" onclick="cerrarRechazo()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="modal-body">
+      <div style="font-size:11px;color:#6b7f8e;margin-bottom:10px;">Marca las bodegas que rechazas e indica el motivo de cada una. Solo esas bodegas vuelven a Abierto; las demás se mantienen como están.</div>
+      <div id="rech-list"></div>
+    </div>
+    <div class="modal-foot">
+      <span id="rech-hint" style="margin-right:auto;align-self:center;font-size:11px;color:#6b7f8e;"></span>
+      <button class="btn-s" onclick="cerrarRechazo()">Cancelar</button>
+      <button class="btn-p" id="rech-confirm" onclick="confirmarRechazo()" style="background:#e05252;color:#fff;"><i class="ti ti-x"></i> Rechazar seleccionadas</button>
     </div>
   </div>
 </div>
@@ -952,11 +973,14 @@ function reportarNovedad(btn) {
 function marcarSolucionadaNew(btn) {
   const bodegaDiv = btn.closest('[style*="padding:8px 12px"]');
   const nombre = bodegaDiv.querySelector('.bodega-name').textContent;
+  const notaInput = bodegaDiv.querySelector('input.bodega-note-input');
+  const nota = notaInput ? notaInput.value.trim() : '';
   bodegaDiv.innerHTML = `
     <div style="display:flex;align-items:center;gap:10px;">
       <div class="bodega-name">${nombre}</div>
       <span class="bdg b-so" style="font-size:10.5px;"><span class="sdot" style="background:#28A745;display:inline-block;"></span> Solucionada</span>
     </div>`;
+  if (bodegaDiv.dataset.bod) sincronizarBodegaTecnico(bodegaDiv, 'solucionada', nota ? `Nota: "${escapeHtml(nota)}"` : 'Sin nota.');
 }
 
 function marcarSolucionada(btn) {
@@ -973,6 +997,284 @@ function marcarSolucionada(btn) {
   if(input) row.removeChild(input);
   row.insertBefore(span, btn);
   row.style.background='';
+}
+
+// ── RECHAZO POR BODEGA ────────────────────────────────────────
+// Estado de bodegas por técnico en el masivo #315900. 'ge' es además el técnico de la vista Incidentes.
+const USUARIO_ACTUAL = 'JEFERSON FABIAN';
+const TEC_VISTA = 'ge';
+const MASIVO_TECS = {
+  ge: { nombre: 'Gelvez Esneyder', rechazos: [], bodegas: [
+    { id: '8580', nombre: 'STIRPE Guatapurí (8580)', estado: 'solucionada', rechazo: null },
+    { id: '545',  nombre: 'Derek Ensueño (545)',     estado: 'solucionada', rechazo: null },
+    { id: '8130', nombre: 'Equis Cacique 2 (8130)',  estado: 'solucionada', rechazo: null },
+    { id: '520',  nombre: 'STIRPE Barranca (520)',   estado: 'abierta',     rechazo: null },
+    { id: '8510', nombre: 'Derek Primavera (8510)',  estado: 'abierta',     rechazo: null }
+  ]},
+  is: { nombre: 'Ivan Sanchez', rechazos: [], bodegas: [
+    { id: 'is-arboleda', nombre: 'Derek Arboleda',        estado: 'solucionada', rechazo: null },
+    { id: 'is-plaza',    nombre: 'STIRPE Plaza Américas', estado: 'solucionada', rechazo: null },
+    { id: 'is-titan',    nombre: 'U82 Titan',             estado: 'novedad',     rechazo: null }
+  ]}
+};
+const MOTIVO_MAX = 500;
+let rechazoTec = null;
+let rechazoSel = new Set();
+let rechazoMotivos = {};
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function fmtFechaHora(d) {
+  const p = n => String(n).padStart(2, '0');
+  return `${d.getDate()}/${d.getMonth() + 1} · ${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+
+// Solo se rechaza lo que el técnico reportó; una bodega rechazada queda Abierta y sale de la lista.
+const esRechazable = b => b.estado === 'solucionada' || b.estado === 'novedad';
+
+function badgeEstadoBodega(b) {
+  return b.estado === 'novedad'
+    ? '<span class="bdg" style="font-size:10.5px;background:rgba(253,126,20,.12);color:#FD7E14;"><span class="sdot" style="background:#FD7E14;"></span> Con novedad</span>'
+    : '<span class="bdg b-so" style="font-size:10.5px;"><span class="sdot" style="background:#28A745;"></span> Solucionada</span>';
+}
+
+function abrirRechazo(key) {
+  rechazoTec = key;
+  rechazoSel = new Set();
+  rechazoMotivos = {};
+  document.getElementById('rech-tec').textContent = MASIVO_TECS[key].nombre;
+  renderRechazoList();
+  document.getElementById('modal-rechazo').classList.add('open');
+}
+
+function cerrarRechazo() {
+  rechazoTec = null;
+  document.getElementById('modal-rechazo').classList.remove('open');
+}
+
+function renderRechazoList() {
+  const el = document.getElementById('rech-list');
+  const candidatas = MASIVO_TECS[rechazoTec].bodegas.filter(esRechazable);
+  if (!candidatas.length) {
+    el.innerHTML = '<div style="padding:20px;text-align:center;color:#4a6070;font-size:11.5px;">No hay bodegas solucionadas o con novedad para rechazar.</div>';
+    actualizarConfirmRechazo();
+    return;
+  }
+  const todas = candidatas.every(b => rechazoSel.has(b.id));
+  el.innerHTML = `
+    <div style="background:#111c26;border:1px solid #1e2d3d;border-radius:8px;overflow:hidden;">
+      <div class="bod-row" onclick="toggleTodasRechazo()" style="cursor:pointer;background:#0d1520;">
+        <div class="bchk ${todas ? 'on' : ''}">${todas ? '✓' : ''}</div>
+        <div style="flex:1;font-size:11.5px;color:#8a9db0;font-weight:600;">Seleccionar todas</div>
+        <span style="font-size:10px;color:#00d4a8;">${rechazoSel.size} de ${candidatas.length} seleccionadas</span>
+      </div>
+      ${candidatas.map(b => {
+        const sel = rechazoSel.has(b.id);
+        const motivo = rechazoMotivos[b.id] || '';
+        return `
+        <div style="border-bottom:1px solid #1a2836;${sel ? 'background:rgba(224,82,82,.04);' : ''}">
+          <div class="bod-row" onclick="toggleBodegaRechazo('${b.id}')" style="cursor:pointer;border-bottom:none;">
+            <div class="bchk ${sel ? 'on' : ''}">${sel ? '✓' : ''}</div>
+            <div style="flex:1;font-size:11.5px;color:#c0d0dc;">${escapeHtml(b.nombre)}</div>
+            ${badgeEstadoBodega(b)}
+          </div>
+          ${sel ? `
+          <div style="padding:0 10px 8px 33px;">
+            <label class="form-label">Motivo del rechazo <span>*</span></label>
+            <textarea class="form-textarea" id="rech-mot-${b.id}" maxlength="${MOTIVO_MAX}" placeholder="Indica qué debe corregir el técnico..." oninput="onMotivoRechazo('${b.id}', this)" style="min-height:56px;">${escapeHtml(motivo)}</textarea>
+            <div id="rech-cnt-${b.id}" style="font-size:10px;color:#4a6070;text-align:right;">${motivo.length} / ${MOTIVO_MAX}</div>
+          </div>` : ''}
+        </div>`;
+      }).join('')}
+    </div>`;
+  actualizarConfirmRechazo();
+}
+
+function toggleBodegaRechazo(id) {
+  const abrir = !rechazoSel.has(id);
+  if (abrir) rechazoSel.add(id); else rechazoSel.delete(id);
+  renderRechazoList();
+  if (abrir) { const t = document.getElementById('rech-mot-' + id); if (t) t.focus(); }
+}
+
+function toggleTodasRechazo() {
+  const candidatas = MASIVO_TECS[rechazoTec].bodegas.filter(esRechazable);
+  const todas = candidatas.every(b => rechazoSel.has(b.id));
+  rechazoSel = todas ? new Set() : new Set(candidatas.map(b => b.id));
+  renderRechazoList();
+}
+
+function onMotivoRechazo(id, ta) {
+  rechazoMotivos[id] = ta.value.slice(0, MOTIVO_MAX);
+  document.getElementById('rech-cnt-' + id).textContent = rechazoMotivos[id].length + ' / ' + MOTIVO_MAX;
+  actualizarConfirmRechazo();
+}
+
+function actualizarConfirmRechazo() {
+  const btn = document.getElementById('rech-confirm');
+  const hint = document.getElementById('rech-hint');
+  const sinMotivo = [...rechazoSel].filter(id => !(rechazoMotivos[id] || '').trim()).length;
+  const ok = rechazoSel.size > 0 && !sinMotivo;
+  btn.disabled = !ok;
+  btn.style.opacity = ok ? '' : '.45';
+  btn.style.cursor = ok ? 'pointer' : 'not-allowed';
+  hint.style.color = sinMotivo ? '#e05252' : '#6b7f8e';
+  hint.textContent = !rechazoSel.size ? 'Selecciona al menos una bodega.'
+    : sinMotivo ? `Falta el motivo en ${sinMotivo} bodega${sinMotivo > 1 ? 's' : ''}.` : '';
+}
+
+function confirmarRechazo() {
+  const key = rechazoTec;
+  const t = MASIVO_TECS[key];
+  const ids = [...rechazoSel];
+  if (!ids.length || ids.some(id => !(rechazoMotivos[id] || '').trim())) return;
+  const fecha = new Date();
+  ids.forEach(id => {
+    const b = t.bodegas.find(x => x.id === id);
+    if (!b || !esRechazable(b)) return;
+    const motivo = rechazoMotivos[id].trim().slice(0, MOTIVO_MAX);
+    b.estado = 'abierta';
+    b.rechazo = { motivo, fecha, autor: USUARIO_ACTUAL };
+    t.rechazos.push({ bodega: b.nombre, motivo, fecha, autor: USUARIO_ACTUAL });
+    agregarNotaAdmin(key, `
+      <div class="tec-note" style="background:rgba(224,82,82,.06);border-radius:6px;padding:6px 8px;border-left:2px solid #e05252;">
+        <span class="note-time" style="color:#e05252;">${fmtFechaHora(fecha)}</span>
+        <span class="note-body"><i class="ti ti-x" style="color:#e05252;font-size:12px;"></i> <strong>${escapeHtml(USUARIO_ACTUAL)}</strong> rechazó <strong>${escapeHtml(b.nombre)}</strong>. Motivo: "${escapeHtml(motivo)}"</span>
+      </div>`);
+    if (key === TEC_VISTA) pintarBodegaRechazadaTecnico(b);
+  });
+  cerrarRechazo();
+  renderAdminTec(key);
+  if (key === TEC_VISTA) renderVistaTecnico();
+}
+
+function agregarNotaAdmin(key, html) {
+  document.getElementById('alert-' + key).insertAdjacentHTML('beforebegin', html);
+}
+
+function renderAdminTec(key) {
+  const t = MASIVO_TECS[key];
+  const total = t.bodegas.length;
+  const sol = t.bodegas.filter(b => b.estado === 'solucionada').length;
+  const abiertas = t.bodegas.filter(b => b.estado === 'abierta');
+  const rechazadas = abiertas.filter(b => b.rechazo).length;
+  const novedades = t.bodegas.filter(b => b.estado === 'novedad');
+
+  document.getElementById('cnt-' + key).innerHTML = `${sol} <span style="font-size:11px;color:#6b7f8e;font-weight:400;">/ ${total}</span>`;
+
+  const est = document.getElementById('est-' + key);
+  const [cls, color, txt] = rechazadas ? ['e-ab', '#5b9bf8', 'Abierto'] : abiertas.length ? ['e-pr', '#FFC107', 'En progreso'] : ['e-co', '#28A745', 'Solucionado'];
+  est.className = 'tec-est ' + cls;
+  est.innerHTML = `<span class="sdot" style="background:${color};"></span> ${txt}`;
+
+  const alert = document.getElementById('alert-' + key);
+  const pintarAlerta = (rgb, color, html) => {
+    alert.style.display = 'flex';
+    alert.style.background = `rgba(${rgb},.06)`;
+    alert.style.border = `1px solid rgba(${rgb},.2)`;
+    alert.style.color = color;
+    alert.innerHTML = `<i class="ti ti-alert-triangle"></i> ${html}`;
+  };
+  if (rechazadas) pintarAlerta('224,82,82', '#e05252', `${rechazadas} bodega${rechazadas > 1 ? 's rechazadas pendientes' : ' rechazada pendiente'} de corrección. El botón Aceptar se activa cuando todas estén solucionadas.`);
+  else if (abiertas.length) pintarAlerta('255,193,7', '#e6ac00', 'Aún hay bodegas pendientes. El botón Aceptar se activa cuando todas estén solucionadas.');
+  else if (novedades.length) pintarAlerta('253,126,20', '#FD7E14', `Hay una novedad reportada en ${novedades.map(b => escapeHtml(b.nombre)).join(', ')}. Puedes aceptar el avance con esta novedad o rechazarlo.`);
+  else alert.style.display = 'none';
+
+  document.getElementById('acts-' + key).innerHTML = (abiertas.length
+    ? '<button disabled style="font-size:11px;padding:5px 10px;background:#1e2d3d;color:#4a6070;border:none;border-radius:6px;cursor:not-allowed;display:flex;align-items:center;gap:5px;"><i class="ti ti-check"></i> Aceptar</button>'
+    : '<button class="btn-p" style="font-size:11px;padding:5px 10px;"><i class="ti ti-check"></i> Aceptar</button>')
+    + `<button class="btn-s" onclick="abrirRechazo('${key}')" style="font-size:11px;padding:5px 10px;color:#e05252;border-color:rgba(224,82,82,.3);"><i class="ti ti-x"></i> Rechazar</button>`;
+}
+
+// ── Vista del técnico ──
+function renderVistaTecnico() {
+  const t = MASIVO_TECS[TEC_VISTA];
+  const total = t.bodegas.length;
+  const sol = t.bodegas.filter(b => b.estado === 'solucionada').length;
+  const pct = Math.round(sol / total * 100);
+  document.getElementById('tec-prog-fill').style.width = pct + '%';
+  document.getElementById('tec-prog-pct').textContent = pct + '%';
+  document.getElementById('tec-prog-cnt').textContent = `${sol} / ${total} bodegas`;
+  const n = t.bodegas.filter(b => b.estado === 'abierta' && b.rechazo).length;
+  const banner = document.getElementById('tec-banner-rech');
+  banner.style.display = n ? 'flex' : 'none';
+  banner.innerHTML = `<i class="ti ti-alert-triangle"></i> Tienes ${n} bodega${n > 1 ? 's rechazadas' : ' rechazada'}. Revisa el motivo del coordinador y vuelve a reportarla${n > 1 ? 's' : ''}.`;
+}
+
+function pintarBodegaRechazadaTecnico(b) {
+  const row = document.querySelector(`#inline-tec [data-bod="${b.id}"]`);
+  if (!row) return;
+  const borde = row.nextElementSibling ? 'border-bottom:1px solid #1a2836;' : '';
+  row.outerHTML = `
+    <div data-bod="${b.id}" style="padding:8px 12px;${borde}background:rgba(224,82,82,.04);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <div class="bodega-name">${escapeHtml(b.nombre)}</div>
+        <span class="bdg b-re" style="font-size:10.5px;"><i class="ti ti-x" style="font-size:11px;"></i> Rechazada</span>
+      </div>
+      <div style="font-size:11.5px;color:#e05252;background:rgba(224,82,82,.06);border:1px solid rgba(224,82,82,.2);border-radius:6px;padding:6px 8px;margin-bottom:6px;line-height:1.5;">
+        <strong>Motivo del coordinador</strong> <span style="color:#6b7f8e;">(${escapeHtml(b.rechazo.autor)} · ${fmtFechaHora(b.rechazo.fecha)})</span>: ${escapeHtml(b.rechazo.motivo)}
+      </div>
+      <input class="bodega-note-input" type="text" placeholder="Nota (opcional)..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
+      <div style="display:flex;gap:6px;">
+        <button onclick="event.stopPropagation();marcarSolucionadaNew(this)" style="flex:1;padding:5px 8px;background:rgba(40,167,69,.1);border:1px solid rgba(40,167,69,.25);border-radius:5px;color:#28A745;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
+          <i class="ti ti-check"></i> Solucionada
+        </button>
+        <button onclick="event.stopPropagation();reportarNovedad(this)" style="flex:1;padding:5px 8px;background:rgba(253,126,20,.08);border:1px solid rgba(253,126,20,.25);border-radius:5px;color:#FD7E14;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
+          <i class="ti ti-alert-circle"></i> Reportar novedad
+        </button>
+      </div>
+      <div class="novedad-form" style="display:none;margin-top:6px;">
+        <select onclick="event.stopPropagation()" class="bodega-note-input" style="width:100%;margin-bottom:4px;">
+          <option>Selecciona tipo de novedad...</option>
+          <option>Equipo dañado</option>
+          <option>Sin acceso</option>
+          <option>Tienda cerrada</option>
+          <option>Problema de red</option>
+          <option>Otro</option>
+        </select>
+        <input class="bodega-note-input" type="text" placeholder="Describe la novedad..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
+        <button class="btn-warn" onclick="event.stopPropagation();enviarNovedadRechazada(this)" style="font-size:11px;padding:5px 10px;margin-left:auto;"><i class="ti ti-send"></i> Enviar novedad</button>
+      </div>
+    </div>`;
+}
+
+function enviarNovedadRechazada(btn) {
+  const row = btn.closest('[data-bod]');
+  const form = row.querySelector('.novedad-form');
+  const sel = form.querySelector('select');
+  if (sel.selectedIndex === 0) { sel.style.borderColor = '#e05252'; sel.focus(); return; }
+  const tipo = sel.value;
+  const desc = form.querySelector('input').value.trim();
+  const nombre = row.querySelector('.bodega-name').textContent;
+  row.innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="bodega-name">${escapeHtml(nombre)}</div>
+      <span class="bdg" style="font-size:10.5px;background:rgba(253,126,20,.12);color:#FD7E14;"><span class="sdot" style="background:#FD7E14;display:inline-block;"></span> Con novedad</span>
+    </div>`;
+  sincronizarBodegaTecnico(row, 'novedad', `Tipo: <em>${escapeHtml(tipo)}</em>. ${desc ? `Nota: "${escapeHtml(desc)}"` : 'Sin nota.'}`);
+}
+
+// Refleja en el estado (y en la vista del coordinador) lo que el técnico reporta en una bodega.
+function sincronizarBodegaTecnico(row, estado, detalleHtml) {
+  const t = MASIVO_TECS[TEC_VISTA];
+  const b = t.bodegas.find(x => x.id === row.dataset.bod);
+  if (!b) return;
+  const eraRechazada = !!b.rechazo;
+  b.estado = estado;
+  b.rechazo = null;
+  row.style.background = '';
+  if (eraRechazada) {
+    const accion = estado === 'novedad' ? `Reportó <strong>novedad</strong> en <strong>${escapeHtml(b.nombre)}</strong> tras el rechazo.` : `Corrigió <strong>${escapeHtml(b.nombre)}</strong> tras el rechazo y la marcó como solucionada.`;
+    agregarNotaAdmin(TEC_VISTA, `
+      <div class="tec-note">
+        <span class="note-time">${fmtFechaHora(new Date())}</span>
+        <span class="note-body">${accion} ${detalleHtml}</span>
+      </div>`);
+  }
+  // Mientras no haya habido rechazos, la vista del coordinador conserva su comportamiento original.
+  if (t.rechazos.length) { renderAdminTec(TEC_VISTA); renderVistaTecnico(); }
 }
 </script>
 </body>

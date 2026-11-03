@@ -466,7 +466,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                           <div class="bodega-name">STIRPE Barranca (520)</div>
                           <span class="bdg b-ab" style="font-size:10.5px;"><span class="sdot" style="background:#5b9bf8;"></span> Abierta</span>
                         </div>
-                        <input class="bodega-note-input" type="text" placeholder="Nota (opcional)..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
+                        <input class="bodega-note-input" type="text" placeholder="Nota (obligatoria si reportas novedad)..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
                         <div style="display:flex;gap:6px;">
                           <button onclick="event.stopPropagation();marcarSolucionadaNew(this)" style="flex:1;padding:5px 8px;background:rgba(40,167,69,.1);border:1px solid rgba(40,167,69,.25);border-radius:5px;color:#28A745;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
                             <i class="ti ti-check"></i> Solucionada
@@ -474,17 +474,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                           <button onclick="event.stopPropagation();reportarNovedad(this)" style="flex:1;padding:5px 8px;background:rgba(253,126,20,.08);border:1px solid rgba(253,126,20,.25);border-radius:5px;color:#FD7E14;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
                             <i class="ti ti-alert-circle"></i> Reportar novedad
                           </button>
-                        </div>
-                        <div class="novedad-form" style="display:none;margin-top:6px;">
-                          <select onclick="event.stopPropagation()" class="bodega-note-input" style="width:100%;margin-bottom:4px;">
-                            <option>Selecciona tipo de novedad...</option>
-                            <option>Equipo dañado</option>
-                            <option>Sin acceso</option>
-                            <option>Tienda cerrada</option>
-                            <option>Problema de red</option>
-                            <option>Otro</option>
-                          </select>
-                          <input class="bodega-note-input" type="text" placeholder="Describe la novedad..." onclick="event.stopPropagation()" style="width:100%;">
                         </div>
                       </div>
 
@@ -494,7 +483,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                           <div class="bodega-name">Derek Primavera (8510)</div>
                           <span class="bdg b-ab" style="font-size:10.5px;"><span class="sdot" style="background:#5b9bf8;"></span> Abierta</span>
                         </div>
-                        <input class="bodega-note-input" type="text" placeholder="Nota (opcional)..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
+                        <input class="bodega-note-input" type="text" placeholder="Nota (obligatoria si reportas novedad)..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
                         <div style="display:flex;gap:6px;">
                           <button onclick="event.stopPropagation();marcarSolucionadaNew(this)" style="flex:1;padding:5px 8px;background:rgba(40,167,69,.1);border:1px solid rgba(40,167,69,.25);border-radius:5px;color:#28A745;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
                             <i class="ti ti-check"></i> Solucionada
@@ -502,17 +491,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
                           <button onclick="event.stopPropagation();reportarNovedad(this)" style="flex:1;padding:5px 8px;background:rgba(253,126,20,.08);border:1px solid rgba(253,126,20,.25);border-radius:5px;color:#FD7E14;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
                             <i class="ti ti-alert-circle"></i> Reportar novedad
                           </button>
-                        </div>
-                        <div class="novedad-form" style="display:none;margin-top:6px;">
-                          <select onclick="event.stopPropagation()" class="bodega-note-input" style="width:100%;margin-bottom:4px;">
-                            <option>Selecciona tipo de novedad...</option>
-                            <option>Equipo dañado</option>
-                            <option>Sin acceso</option>
-                            <option>Tienda cerrada</option>
-                            <option>Problema de red</option>
-                            <option>Otro</option>
-                          </select>
-                          <input class="bodega-note-input" type="text" placeholder="Describe la novedad..." onclick="event.stopPropagation()" style="width:100%;">
                         </div>
                       </div>
                     </div>
@@ -963,11 +941,23 @@ function toggleInline() {
 }
 
 function reportarNovedad(btn) {
-  const container = btn.closest('div[style*="display:flex"]').parentElement;
-  const form = container.querySelector('.novedad-form');
-  const isOpen = form.style.display !== 'none';
-  form.style.display = isOpen ? 'none' : 'block';
-  btn.style.background = isOpen ? 'rgba(253,126,20,.08)' : 'rgba(253,126,20,.2)';
+  const bodegaDiv = btn.closest('[style*="padding:8px 12px"]');
+  const notaInput = bodegaDiv.querySelector('input.bodega-note-input');
+  const nota = notaInput.value.trim();
+  if (!nota) {
+    notaInput.style.borderColor = '#e05252';
+    notaInput.placeholder = 'Describe la novedad (obligatorio)...';
+    notaInput.addEventListener('input', () => { notaInput.style.borderColor = ''; }, { once: true });
+    notaInput.focus();
+    return;
+  }
+  const nombre = bodegaDiv.querySelector('.bodega-name').textContent;
+  bodegaDiv.innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="bodega-name">${escapeHtml(nombre)}</div>
+      <span class="bdg" style="font-size:10.5px;background:rgba(253,126,20,.12);color:#FD7E14;"><span class="sdot" style="background:#FD7E14;display:inline-block;"></span> Con novedad</span>
+    </div>`;
+  if (bodegaDiv.dataset.bod) sincronizarBodegaTecnico(bodegaDiv, 'novedad', `Nota: "${escapeHtml(nota)}"`);
 }
 
 function marcarSolucionadaNew(btn) {
@@ -1216,7 +1206,7 @@ function pintarBodegaRechazadaTecnico(b) {
       <div style="font-size:11.5px;color:#e05252;background:rgba(224,82,82,.06);border:1px solid rgba(224,82,82,.2);border-radius:6px;padding:6px 8px;margin-bottom:6px;line-height:1.5;">
         <strong>Motivo del coordinador</strong> <span style="color:#6b7f8e;">(${escapeHtml(b.rechazo.autor)} · ${fmtFechaHora(b.rechazo.fecha)})</span>: ${escapeHtml(b.rechazo.motivo)}
       </div>
-      <input class="bodega-note-input" type="text" placeholder="Nota (opcional)..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
+      <input class="bodega-note-input" type="text" placeholder="Nota (obligatoria si reportas novedad)..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
       <div style="display:flex;gap:6px;">
         <button onclick="event.stopPropagation();marcarSolucionadaNew(this)" style="flex:1;padding:5px 8px;background:rgba(40,167,69,.1);border:1px solid rgba(40,167,69,.25);border-radius:5px;color:#28A745;font-size:11.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;">
           <i class="ti ti-check"></i> Solucionada
@@ -1225,35 +1215,7 @@ function pintarBodegaRechazadaTecnico(b) {
           <i class="ti ti-alert-circle"></i> Reportar novedad
         </button>
       </div>
-      <div class="novedad-form" style="display:none;margin-top:6px;">
-        <select onclick="event.stopPropagation()" class="bodega-note-input" style="width:100%;margin-bottom:4px;">
-          <option>Selecciona tipo de novedad...</option>
-          <option>Equipo dañado</option>
-          <option>Sin acceso</option>
-          <option>Tienda cerrada</option>
-          <option>Problema de red</option>
-          <option>Otro</option>
-        </select>
-        <input class="bodega-note-input" type="text" placeholder="Describe la novedad..." onclick="event.stopPropagation()" style="width:100%;margin-bottom:6px;">
-        <button class="btn-warn" onclick="event.stopPropagation();enviarNovedadRechazada(this)" style="font-size:11px;padding:5px 10px;margin-left:auto;"><i class="ti ti-send"></i> Enviar novedad</button>
-      </div>
     </div>`;
-}
-
-function enviarNovedadRechazada(btn) {
-  const row = btn.closest('[data-bod]');
-  const form = row.querySelector('.novedad-form');
-  const sel = form.querySelector('select');
-  if (sel.selectedIndex === 0) { sel.style.borderColor = '#e05252'; sel.focus(); return; }
-  const tipo = sel.value;
-  const desc = form.querySelector('input').value.trim();
-  const nombre = row.querySelector('.bodega-name').textContent;
-  row.innerHTML = `
-    <div style="display:flex;align-items:center;gap:10px;">
-      <div class="bodega-name">${escapeHtml(nombre)}</div>
-      <span class="bdg" style="font-size:10.5px;background:rgba(253,126,20,.12);color:#FD7E14;"><span class="sdot" style="background:#FD7E14;display:inline-block;"></span> Con novedad</span>
-    </div>`;
-  sincronizarBodegaTecnico(row, 'novedad', `Tipo: <em>${escapeHtml(tipo)}</em>. ${desc ? `Nota: "${escapeHtml(desc)}"` : 'Sin nota.'}`);
 }
 
 // Refleja en el estado (y en la vista del coordinador) lo que el técnico reporta en una bodega.
